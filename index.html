@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="好和工作坊提供身心靈療癒、催眠療癒、靈氣療癒與解惑諮詢等服務，陪伴你探索情緒、身體症狀與生命課題，找回內在力量與人生方向。"/>
+  <meta name="keywords" content="好和工作坊,身心靈療癒,解惑諮詢,靈氣,催眠,光的課程,合一覺醒,台北,hoholife,情緒療癒,能量療癒,聖火靈氣,高我訊息,身體訊息,內在探索"/>
+  <meta property="og:title" content="好和工作坊 Hoho Life｜身心靈療癒・催眠療癒・靈氣療癒・解惑諮詢"/>
+  <meta property="og:description" content="探索情緒、身體與生命課題，透過催眠療癒、靈氣療癒與解惑諮詢的能量療癒與深度諮詢，陪伴你找回內在的力量與方向。"/>
+  <meta property="og:image" content="og-image.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:type" content="website"/>
+  <link rel="canonical" href="https://hoho-life.com/">
+  <title>好和工作坊 — 身心靈療癒・催眠療癒・靈氣療癒・解惑諮詢</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --sand:#f5f0e8;--linen:#ede5d8;--sage:#b8c4b1;--moss:#7a8f72;
+      --clay:#c4a882;--warm:#6b5340;--deep:#2e2520;--ink:#2a2420;
+      --mist:rgba(245,240,232,.94);
+      --fs-xs:.75rem;--fs-sm:.875rem;--fs-base:1rem;--fs-md:1.125rem;
+      --fs-lg:1.375rem;--fs-xl:1.75rem;--fs-2xl:2.5rem;--fs-3xl:3.5rem;--fs-4xl:5rem;
+      --ease-gentle:cubic-bezier(.25,.46,.45,.94);
+      --ease-silk:cubic-bezier(.16,1,.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Noto Sans TC',sans-serif;background:var(--sand);color:var(--ink);line-height:1.8;font-weight:300;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5}
+    .weave-bg{background-image:repeating-linear-gradient(0deg,transparent,transparent 18px,rgba(180,160,130,.05) 18px,rgba(180,160,130,.05) 19px),repeating-linear-gradient(90deg,transparent,transparent 18px,rgba(180,160,130,.05) 18px,rgba(180,160,130,.05) 19px)}
+    .serif{font-family:'Noto Serif TC',serif}
+    .reading-bar{position:fixed;top:0;left:0;height:2px;background:var(--clay);width:0%;z-index:101;transition:width .1s linear}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s var(--ease-gentle),padding .4s var(--ease-gentle);background:rgba(245,240,232,.12)}
+    nav.scrolled{background:var(--mist);backdrop-filter:blur(14px);padding:1rem 3rem;border-bottom:1px solid rgba(180,160,130,.18)}
+    /* ── NAV LOGO B: 書法PNG with stamp ── */
+    .nav-logo{display:flex;align-items:center;gap:0;text-decoration:none;flex-shrink:0}
+    .nav-logo-img{
+      height:44px;width:auto;
+      display:block;
+      object-fit:contain;
+      /* multiply: 白底在沙色 nav 上消失 */
+      mix-blend-mode:multiply;
+      opacity:.92;
+      transition:opacity .4s, filter .4s;
+    }
+    nav:not(.scrolled) .nav-logo-img{
+      mix-blend-mode:multiply;
+      filter:none;
+      opacity:.95;
+    }
+    .nav-logo-mark,.nav-logo-text,.nav-logo-sep{display:none!important}
+    .nav-logo-zh,.nav-logo-en{display:none!important}
+    .nav-links{display:flex;gap:2rem;align-items:center}
+    .nav-links a{font-size:var(--fs-sm);letter-spacing:.1em;color:var(--deep);opacity:.7;transition:opacity .25s;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--warm);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease-gentle)}
+    .nav-links a:hover{opacity:1}
+    .nav-links a:hover::after{transform:scaleX(1)}
+    .nav-cta{font-size:var(--fs-sm)!important;letter-spacing:.12em!important;padding:.5rem 1.3rem;border:1px solid var(--warm);color:var(--warm)!important;opacity:1!important;border-radius:2rem;transition:background .25s,color .25s!important;cursor:pointer}
+    .nav-cta:hover{background:var(--warm);color:var(--sand)!important}
+    .nav-cta::after{display:none!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:22px;height:1.5px;background:var(--deep);transition:transform .3s,opacity .3s}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+    .mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--mist);backdrop-filter:blur(20px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;opacity:0;pointer-events:none;transition:opacity .4s var(--ease-gentle)}
+    .mobile-nav.open{opacity:1;pointer-events:all}
+    .mobile-nav a{font-family:'Noto Serif TC',serif;font-size:var(--fs-xl);color:var(--deep);letter-spacing:.08em}
+
+    /* HERO */
+    #hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
+    .hero-bg-img{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80');background-size:cover;background-position:center;opacity:.07}
+    .hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(180,160,130,.18);animation:breathe 8s ease-in-out infinite}
+    .hero-ring:nth-child(2){width:480px;height:480px;animation-delay:0s}
+    .hero-ring:nth-child(3){width:680px;height:680px;animation-delay:1.5s}
+    .hero-ring:nth-child(4){width:900px;height:900px;animation-delay:3s}
+    @keyframes breathe{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.03);opacity:1}}
+    .hero-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-md);color:var(--warm);letter-spacing:.2em;margin-bottom:1.5rem;opacity:0;animation:fadeUp 1s var(--ease-silk) .3s forwards}
+    .hero-title{font-family:'Noto Serif TC',serif;font-size:clamp(var(--fs-2xl),6vw,var(--fs-4xl));font-weight:300;color:var(--deep);line-height:1.35;letter-spacing:.06em;margin-bottom:1.8rem;opacity:0;animation:fadeUp 1s var(--ease-silk) .5s forwards}
+    .hero-title em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;color:var(--warm)}
+    .hero-keywords{font-size:var(--fs-xs);color:var(--warm);font-weight:300;letter-spacing:.22em;opacity:0;margin-bottom:1.1rem;animation:fadeUp 1s var(--ease-silk) .65s forwards}
+    .hero-sub{font-size:var(--fs-md);color:var(--warm);font-weight:300;letter-spacing:.05em;max-width:480px;line-height:2;margin-bottom:3rem;opacity:0;animation:fadeUp 1s var(--ease-silk) .7s forwards}
+    .hero-actions{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 1s var(--ease-silk) .9s forwards}
+    .btn-primary{font-size:var(--fs-sm);letter-spacing:.14em;padding:.9rem 2.2rem;background:var(--warm);color:var(--sand);border-radius:3rem;border:none;cursor:pointer;transition:background .3s,transform .2s;display:inline-block}
+    .btn-primary:hover{background:var(--deep);transform:translateY(-2px)}
+    .btn-ghost{font-size:var(--fs-sm);letter-spacing:.14em;padding:.9rem 2.2rem;background:transparent;color:var(--deep);border-radius:3rem;border:1px solid rgba(60,50,40,.3);cursor:pointer;transition:border-color .3s,transform .2s;display:inline-block}
+    .btn-ghost:hover{border-color:var(--warm);color:var(--warm);transform:translateY(-2px)}
+    .hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeUp 1s var(--ease-silk) 1.3s forwards}
+    .hero-scroll span{font-size:var(--fs-xs);letter-spacing:.2em;color:var(--warm);opacity:.6;text-transform:uppercase}
+    .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--warm),transparent);animation:scrollPulse 2s ease-in-out infinite}
+    @keyframes scrollPulse{0%,100%{opacity:.4;height:30px}50%{opacity:.9;height:50px}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+    /* SECTION BASE */
+    section{padding:7rem 2rem}
+    .container{max-width:1080px;margin:0 auto}
+    .section-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-sm);color:var(--warm);letter-spacing:.25em;text-transform:uppercase;margin-bottom:1rem}
+    .section-title{font-family:'Noto Serif TC',serif;font-size:clamp(var(--fs-xl),3.5vw,var(--fs-3xl));font-weight:300;color:var(--deep);line-height:1.4;letter-spacing:.04em}
+    .divider{width:48px;height:1px;background:var(--clay);margin:2rem 0}
+    .divider.center{margin:2rem auto}
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease-silk),transform .9s var(--ease-silk)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.1s}
+    .reveal-delay-2{transition-delay:.22s}
+    .reveal-delay-3{transition-delay:.34s}
+    .reveal-delay-4{transition-delay:.46s}
+
+    /* ABOUT */
+    #about{background:var(--linen)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .about-visual{position:relative;aspect-ratio:3/4;max-height:520px}
+    .about-card{background:var(--sand);border-radius:2px;width:100%;height:100%;overflow:hidden;position:relative}
+    .about-card img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.9}
+    .about-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(42,36,32,.5) 0%,transparent 50%)}
+    .about-float{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--warm);color:var(--sand);padding:1.5rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-sm);letter-spacing:.08em;line-height:2;max-width:180px;text-align:center}
+    .about-text p{color:var(--warm);font-size:var(--fs-base);line-height:2.2;margin-bottom:1.4rem}
+    .about-stats{display:flex;gap:3rem;margin-top:2.5rem}
+    .stat-num{font-family:'Cormorant Garamond',serif;font-size:var(--fs-3xl);font-weight:300;color:var(--warm);line-height:1}
+    .stat-label{font-size:var(--fs-xs);letter-spacing:.15em;color:var(--deep);opacity:.55;margin-top:.3rem}
+
+    /* TEAM */
+    #team{background:var(--sand)}
+    .team-header{text-align:center;margin-bottom:4rem}
+    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+    .team-card{text-align:center;cursor:pointer;transition:transform .25s var(--ease-gentle)}
+    .team-card:hover{transform:translateY(-4px)}
+    .team-photo{width:100%;aspect-ratio:1;overflow:hidden;border-radius:50%;margin-bottom:1.5rem;background:var(--linen)}
+    .team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s var(--ease-gentle)}
+    .team-card:hover .team-photo img{transform:scale(1.05)}
+    .team-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+    .team-photo-placeholder span{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--clay);opacity:.4}
+    .team-name{font-family:'Noto Serif TC',serif;font-size:var(--fs-lg);font-weight:400;color:var(--deep);letter-spacing:.06em;margin-bottom:.4rem}
+    .team-role{font-size:var(--fs-xs);letter-spacing:.12em;color:var(--warm);opacity:.8;line-height:1.9}
+    .team-more{margin-top:.8rem;font-size:var(--fs-xs);color:var(--clay);letter-spacing:.08em;opacity:.85;transition:opacity .2s,letter-spacing .2s}
+    .team-card:hover .team-more{opacity:1;letter-spacing:.14em}
+
+    /* PHILOSOPHY */
+    #philosophy{background:var(--deep);padding:5rem 2rem;text-align:center;overflow:hidden;position:relative}
+    #philosophy::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.015) 40px,rgba(255,255,255,.015) 41px)}
+    .phil-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(var(--fs-xl),3.5vw,var(--fs-3xl));color:var(--linen);font-weight:300;line-height:1.7;max-width:780px;margin:0 auto 1.5rem;letter-spacing:.03em}
+    .phil-attr{font-size:var(--fs-sm);letter-spacing:.2em;color:var(--clay);opacity:.8}
+    .phil-deco{font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--clay);opacity:.3;line-height:.5;margin-bottom:1.5rem;display:block}
+
+    /* SERVICES */
+    #services{background:var(--sand)}
+    .services-header{text-align:center;margin-bottom:4.5rem}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(180,160,130,.15);border:1px solid rgba(180,160,130,.15)}
+    .service-card{background:var(--sand);padding:0 0 2rem;transition:background .35s var(--ease-gentle);position:relative;overflow:hidden}
+    .service-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--warm);transform:scaleX(0);transition:transform .4s var(--ease-gentle)}
+    .service-card:hover{background:var(--linen)}
+    .service-card:hover::before{transform:scaleX(1)}
+    .service-img{width:100%;height:160px;object-fit:cover;opacity:.88;margin-bottom:0;display:block}
+    .service-body{padding:1.8rem 2rem 0}
+    .service-icon{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--clay);opacity:.7;margin-bottom:1rem;line-height:1}
+    .service-name{font-family:'Noto Serif TC',serif;font-size:var(--fs-lg);font-weight:400;color:var(--deep);letter-spacing:.05em;margin-bottom:.8rem}
+    .service-desc{font-size:var(--fs-sm);color:var(--warm);line-height:2;opacity:.9}
+    .service-tag{display:inline-block;margin-top:1.2rem;font-size:var(--fs-xs);letter-spacing:.15em;color:var(--warm);border-bottom:1px solid currentColor;padding-bottom:1px}
+    .service-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:var(--fs-xs);letter-spacing:.12em;color:var(--warm);opacity:.8;transition:opacity .2s,transform .2s}
+    .service-more:hover{opacity:1;transform:translateX(3px)}
+    .service-more svg{width:14px;height:14px;flex-shrink:0}
+
+    /* EVENTS */
+    #events{background:var(--linen)}
+    .events-header{margin-bottom:4rem}
+    .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .event-card{background:var(--sand);display:flex;flex-direction:column;position:relative;overflow:hidden;cursor:pointer;transition:transform .35s var(--ease-gentle),box-shadow .35s}
+    .event-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(60,50,40,.1)}
+    .event-badge{position:absolute;top:1rem;right:1rem;font-size:var(--fs-xs);letter-spacing:.12em;padding:.25rem .7rem;border-radius:2rem;text-transform:uppercase;z-index:2}
+    .event-badge.limited{background:var(--warm);color:var(--sand)}
+    .event-badge.ongoing{background:var(--moss);color:var(--sand)}
+    .event-badge.season{background:var(--clay);color:var(--sand)}
+    .event-visual{height:160px;position:relative;overflow:hidden}
+    .event-visual img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-gentle)}
+    .event-card:hover .event-visual img{transform:scale(1.06)}
+    .event-visual-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(42,36,32,.4))}
+    .event-visual-fallback{width:100%;height:100%;background:var(--deep);display:flex;align-items:center;justify-content:center}
+    .event-visual-fallback span{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--clay);opacity:.45}
+    .event-body{padding:1.8rem;flex:1;display:flex;flex-direction:column}
+    .event-meta{display:flex;gap:.7rem;margin-bottom:.8rem;flex-wrap:wrap}
+    .event-meta-item{font-size:var(--fs-xs);letter-spacing:.07em;color:var(--warm);display:flex;align-items:center;gap:.3rem}
+    .event-meta-item svg{width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .event-name{font-family:'Noto Serif TC',serif;font-size:var(--fs-lg);font-weight:400;color:var(--deep);letter-spacing:.04em;margin-bottom:.7rem;line-height:1.5}
+    .event-desc{font-size:var(--fs-sm);color:var(--warm);line-height:2;opacity:.85;flex:1;margin-bottom:1.4rem}
+    .event-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(180,160,130,.2);padding-top:1.1rem}
+    .event-price{font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);color:var(--warm);font-weight:300}
+    .event-price sub{font-family:'Noto Sans TC',sans-serif;font-size:var(--fs-xs);opacity:.7;vertical-align:baseline;margin-left:.2em}
+    .btn-event{font-size:var(--fs-xs);letter-spacing:.12em;padding:.5rem 1.1rem;background:var(--warm);color:var(--sand);border-radius:2rem;border:none;cursor:pointer;transition:background .25s,transform .2s;display:inline-block;white-space:nowrap}
+    .btn-event:hover{background:var(--deep);transform:translateY(-1px)}
+    .btn-event.disabled{background:rgba(60,50,40,.1);color:rgba(60,50,40,.4);cursor:not-allowed;pointer-events:none}
+    .events-more{text-align:center;margin-top:3rem}
+    .events-more a{font-size:var(--fs-sm);letter-spacing:.14em;color:var(--warm);border-bottom:1px solid currentColor;padding-bottom:2px;transition:opacity .2s}
+    .events-more a:hover{opacity:.6}
+
+    /* LIGHT COURSE TABLE */
+    .light-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:var(--fs-sm)}
+    .light-table th{font-family:'Noto Serif TC',serif;font-weight:400;font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.7;padding:.6rem .8rem;text-align:left;border-bottom:1px solid rgba(180,160,130,.3)}
+    .light-table td{padding:.7rem .8rem;border-bottom:1px solid rgba(180,160,130,.12);color:var(--deep);vertical-align:top;line-height:1.7}
+    .light-table tr:last-child td{border-bottom:none}
+    .light-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.5rem;flex-shrink:0;vertical-align:middle}
+
+    /* MODALS */
+    .modal-overlay{position:fixed;inset:0;background:rgba(42,36,32,.6);backdrop-filter:blur(10px);z-index:200;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .4s var(--ease-gentle)}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal{background:var(--sand);width:100%;max-width:620px;max-height:90svh;overflow-y:auto;position:relative;transform:translateY(28px) scale(.97);transition:transform .4s var(--ease-silk)}
+    .modal-overlay.open .modal{transform:translateY(0) scale(1)}
+    .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--deep);opacity:.35;transition:opacity .2s;z-index:10}
+    .modal-close:hover{opacity:.9}
+    .modal-hero-img{width:100%;height:220px;object-fit:cover}
+    .modal-hero-fallback{width:100%;height:220px;background:var(--deep);display:flex;align-items:center;justify-content:center}
+    .modal-hero-fallback span{font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--clay);opacity:.4}
+    .modal-content{padding:2.5rem 3rem}
+    .modal-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-sm);color:var(--warm);letter-spacing:.2em;margin-bottom:.5rem}
+    .modal-title{font-family:'Noto Serif TC',serif;font-size:var(--fs-2xl);font-weight:300;color:var(--deep);letter-spacing:.04em;line-height:1.4;margin-bottom:1.2rem}
+    .modal-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;background:var(--linen);padding:1.2rem;margin-bottom:1.8rem}
+    .modal-info-item label{font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.7;display:block;margin-bottom:.2rem}
+    .modal-info-item span{font-family:'Noto Serif TC',serif;font-size:var(--fs-base);color:var(--deep)}
+    .modal-body-text{font-size:var(--fs-sm);color:var(--warm);line-height:2.2;margin-bottom:2rem}
+    .modal-body-text p{margin-bottom:1rem}
+    .modal-body-text ul{padding-left:1.2rem;list-style:disc}
+    .modal-body-text ul li{margin-bottom:.5rem}
+    .modal-register-box{background:var(--linen);padding:1.5rem;text-align:center}
+    .modal-register-box p{font-size:var(--fs-sm);color:var(--warm);margin-bottom:1.2rem;line-height:1.9}
+    .modal-register-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .btn-reg-primary{font-size:var(--fs-sm);letter-spacing:.1em;padding:.75rem 1.8rem;background:var(--warm);color:var(--sand);border-radius:2rem;border:none;cursor:pointer;transition:background .25s;display:inline-flex;align-items:center;gap:.5rem}
+    .btn-reg-primary:hover{background:var(--deep)}
+    .btn-reg-ghost{font-size:var(--fs-sm);letter-spacing:.1em;padding:.75rem 1.8rem;border:1px solid var(--warm);color:var(--warm);border-radius:2rem;background:transparent;cursor:pointer;transition:background .25s,color .25s;display:inline-flex;align-items:center;gap:.5rem}
+    .btn-reg-ghost:hover{background:var(--warm);color:var(--sand)}
+
+    /* REGISTRATION FORM MODAL */
+    #regModal .modal{max-width:520px}
+    .reg-header{padding:2.5rem 3rem 1.8rem;background:var(--linen);border-bottom:1px solid rgba(180,160,130,.2)}
+    .form-row{display:grid;gap:1rem;margin-bottom:.9rem}
+    .form-row.two{grid-template-columns:1fr 1fr}
+    .form-group{display:flex;flex-direction:column;gap:.35rem}
+    .form-label{font-size:var(--fs-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--warm);opacity:.8}
+    .req{color:var(--warm)}
+    .form-input{border:1px solid rgba(180,160,130,.4);background:var(--sand);padding:.65rem .9rem;font-family:'Noto Sans TC',sans-serif;font-size:var(--fs-sm);color:var(--deep);outline:none;transition:border-color .25s;border-radius:2px;width:100%}
+    .form-input:focus{border-color:var(--warm)}
+    .form-input::placeholder{color:rgba(60,50,40,.3);font-weight:300}
+    .radio-group{display:flex;gap:1.5rem;padding-top:.3rem;flex-wrap:wrap}
+    .radio-label{display:flex;align-items:center;gap:.4rem;font-size:var(--fs-sm);color:var(--deep);cursor:pointer}
+    .radio-label input{accent-color:var(--warm);width:14px;height:14px}
+    select.form-input{cursor:pointer}
+    .form-submit{width:100%;margin-top:1.5rem;padding:.9rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.12em;cursor:pointer;transition:background .25s,transform .2s}
+    .form-submit:hover{background:var(--deep);transform:translateY(-1px)}
+    #regMsg{display:none;margin-top:1rem;padding:.8rem 1rem;font-size:var(--fs-sm);border-radius:2px;text-align:center}
+    #regMsg.success{background:rgba(122,143,114,.15);color:var(--moss);border:1px solid rgba(122,143,114,.3)}
+    #regMsg.error{background:rgba(180,80,80,.08);color:#a04040;border:1px solid rgba(180,80,80,.2)}
+
+    /* BOOKING MODAL */
+    #bookingModal .modal{max-width:540px}
+    .booking-section-title{font-size:var(--fs-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:1rem}
+    .booking-methods{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem}
+    .booking-card{display:flex;align-items:center;gap:1.2rem;padding:1.3rem 1.5rem;background:var(--linen);border:1px solid transparent;transition:border-color .25s,background .25s;text-decoration:none;color:inherit;cursor:pointer}
+    .booking-card:hover{border-color:var(--clay);background:var(--sand)}
+    .booking-icon{width:42px;height:42px;background:var(--warm);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .booking-icon svg{width:18px;height:18px;stroke:var(--sand);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+    .booking-label{font-size:var(--fs-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--warm);margin-bottom:.15rem}
+    .booking-value{font-family:'Noto Serif TC',serif;font-size:var(--fs-base);color:var(--deep);letter-spacing:.03em}
+    .booking-arrow{margin-left:auto;flex-shrink:0;opacity:.25;transition:opacity .2s,transform .2s}
+    .booking-card:hover .booking-arrow{opacity:.6;transform:translateX(3px)}
+    .booking-arrow svg{width:16px;height:16px;stroke:var(--deep);fill:none;stroke-width:1.5}
+    .modal-sep{display:flex;align-items:center;gap:1rem;margin:1.5rem 0}
+    .modal-sep::before,.modal-sep::after{content:'';flex:1;height:1px;background:rgba(180,160,130,.22)}
+    .modal-sep span{font-size:var(--fs-xs);letter-spacing:.15em;color:var(--warm);opacity:.55}
+    .booking-hours-box{background:var(--linen);padding:1.2rem 1.5rem;text-align:center}
+    .booking-hours-box p{font-size:var(--fs-xs);letter-spacing:.08em;color:var(--warm);opacity:.7;line-height:2}
+    .booking-hours-box strong{font-weight:500;color:var(--deep)}
+    .modal-note{margin-top:1.5rem;font-size:var(--fs-xs);color:var(--warm);opacity:.5;text-align:center;line-height:1.9}
+
+    /* PRODUCTS */
+    #products{background:var(--sand)}
+    .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .product-item{background:var(--linen);overflow:hidden;transition:transform .3s var(--ease-gentle),box-shadow .3s}
+    .product-item:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(60,50,40,.08)}
+    .product-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--deep)}
+    .product-img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:transform .5s var(--ease-gentle);display:block}
+    .product-item:hover .product-img{transform:scale(1.05)}
+    .product-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:absolute;inset:0}
+    .product-img-placeholder span{font-size:3rem;opacity:.3}
+    .product-info{padding:1.4rem}
+    .product-name{font-family:'Noto Serif TC',serif;font-size:var(--fs-md);font-weight:400;color:var(--deep);letter-spacing:.06em;margin-bottom:.3rem}
+    .product-price{font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);color:var(--warm);font-weight:300;margin:.3rem 0 .5rem}
+    .product-price span{font-family:'Noto Sans TC',sans-serif;font-size:var(--fs-xs);opacity:.65;letter-spacing:.08em;margin-left:.2em}
+    .product-slogan{font-size:var(--fs-xs);color:var(--clay);letter-spacing:.1em;font-family:'Cormorant Garamond',serif;font-style:italic;margin-bottom:.5rem}
+    .product-note{font-size:var(--fs-sm);color:#55402e;opacity:1;line-height:1.8;margin-bottom:1rem}
+    .btn-buy{font-size:var(--fs-xs);letter-spacing:.12em;padding:.45rem 1.1rem;background:var(--warm);color:var(--sand);border-radius:2rem;border:none;cursor:pointer;transition:background .25s;display:inline-block}
+    .btn-buy:hover{background:var(--deep)}
+
+    /* TESTIMONIALS */
+    #testimonials{background:var(--linen);text-align:center}
+    .testimonials-header{margin-bottom:4rem}
+    .testimonials-track{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .testimonial-card{background:var(--sand);padding:2.5rem 2rem;text-align:left;position:relative}
+    .testimonial-card::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--clay);opacity:.25;position:absolute;top:.5rem;left:1.5rem;line-height:1}
+    .testimonial-text{font-size:var(--fs-sm);color:var(--deep);line-height:2.1;opacity:.85;margin-bottom:1.5rem;padding-top:1rem}
+    .testimonial-author{font-size:var(--fs-xs);letter-spacing:.15em;color:var(--warm)}
+
+    /* CTA */
+    #cta{background:linear-gradient(135deg,var(--warm) 0%,var(--clay) 100%);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden}
+    #cta::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(255,255,255,.04) 20px,rgba(255,255,255,.04) 21px),repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(255,255,255,.04) 20px,rgba(255,255,255,.04) 21px)}
+    .cta-inner{position:relative}
+    .cta-pre{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-md);color:rgba(245,240,232,.75);letter-spacing:.2em;margin-bottom:1.2rem}
+    .cta-title{font-family:'Noto Serif TC',serif;font-size:clamp(var(--fs-xl),4vw,var(--fs-3xl));font-weight:300;color:var(--sand);line-height:1.45;letter-spacing:.05em;margin-bottom:2.5rem}
+    .btn-light{display:inline-block;font-size:var(--fs-sm);letter-spacing:.14em;padding:1rem 2.5rem;background:var(--sand);color:var(--warm);border-radius:3rem;transition:background .3s,transform .2s;border:none;cursor:pointer}
+    .btn-light:hover{background:var(--deep);color:var(--sand);transform:translateY(-2px)}
+
+    /* FAQ */
+    #faq{background:var(--sand)}
+    .faq-list{max-width:720px}
+    .faq-item{border-bottom:1px solid rgba(180,160,130,.3)}
+    .faq-q{width:100%;text-align:left;background:none;border:none;padding:1.6rem 0;font-family:'Noto Serif TC',serif;font-size:var(--fs-md);font-weight:400;color:var(--deep);letter-spacing:.04em;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .faq-q:hover{color:var(--warm)}
+    .faq-icon{flex-shrink:0;width:20px;height:20px;position:relative}
+    .faq-icon::before,.faq-icon::after{content:'';position:absolute;background:currentColor;transition:transform .35s var(--ease-gentle)}
+    .faq-icon::before{width:12px;height:1px;top:50%;left:50%;transform:translate(-50%,-50%)}
+    .faq-icon::after{width:1px;height:12px;top:50%;left:50%;transform:translate(-50%,-50%)}
+    .faq-item.open .faq-icon::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease-gentle),padding .35s;font-size:var(--fs-sm);color:var(--warm);line-height:2.1;padding:0}
+    .faq-item.open .faq-a{max-height:600px;padding-bottom:1.5rem}
+
+    /* FOOTER */
+    footer{background:var(--ink);padding:5rem 2rem 3rem;color:rgba(245,240,232,.55)}
+    .footer-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+    .footer-brand h3{font-family:'Noto Serif TC',serif;font-size:var(--fs-lg);font-weight:400;color:var(--linen);letter-spacing:.08em;margin-bottom:1rem}
+    .footer-brand p{font-size:var(--fs-sm);line-height:2;max-width:280px}
+    .footer-social{display:flex;gap:1rem;margin-top:1.8rem}
+    .social-btn{width:38px;height:38px;border-radius:50%;border:1px solid rgba(245,240,232,.2);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s;flex-shrink:0}
+    .social-btn:hover{border-color:var(--clay);background:rgba(196,168,130,.12)}
+    .social-btn svg{width:16px;height:16px;fill:rgba(245,240,232,.6);transition:fill .25s}
+    .social-btn:hover svg{fill:var(--clay)}
+    .footer-col h4{font-size:var(--fs-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--linen);margin-bottom:1.2rem}
+    .footer-col li{margin-bottom:.7rem}
+    .footer-col a{font-size:var(--fs-sm);transition:color .2s}
+    .footer-col a:hover{color:var(--clay)}
+    .footer-contact-item{display:flex;gap:.6rem;align-items:flex-start;font-size:var(--fs-sm);margin-bottom:.8rem;min-width:0}
+    .footer-contact-item a,.footer-contact-item span{word-break:break-all;min-width:0;flex:1}
+    .footer-contact-item svg{width:14px;height:14px;stroke:var(--clay);fill:none;stroke-width:1.5;stroke-linecap:round;flex-shrink:0;margin-top:.3rem}
+    .footer-bottom{max-width:1080px;margin:2rem auto 0;display:flex;justify-content:space-between;align-items:center;font-size:var(--fs-xs);letter-spacing:.1em}
+    .footer-bottom span{opacity:.4}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .products-grid{grid-template-columns:repeat(2,1fr)}
+      .team-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:768px){
+      nav{padding:1.2rem 1.5rem}
+      nav.scrolled{padding:.9rem 1.5rem}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .mobile-nav{display:flex}
+      section{padding:5rem 1.5rem}
+      #hero{padding:6rem 1.5rem 4rem}
+      .hero-ring:nth-child(2){width:280px;height:280px}
+      .hero-ring:nth-child(3){width:420px;height:420px}
+      .hero-ring:nth-child(4){width:560px;height:560px}
+      .about-grid{grid-template-columns:1fr;gap:3rem}
+      .about-visual{max-height:340px}
+      .about-float{bottom:-1rem;right:-.5rem;padding:1rem;max-width:140px}
+      .about-stats{gap:2rem}
+      .team-grid{grid-template-columns:repeat(2,1fr)}
+      .services-grid{grid-template-columns:1fr}
+      .events-grid{grid-template-columns:1fr}
+      .testimonials-track{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr;gap:2.5rem}
+      .footer-bottom{flex-direction:column;gap:.8rem;text-align:center}
+      .modal-content{padding:1.8rem 1.5rem}
+      .modal-info-grid{grid-template-columns:1fr}
+      .form-row.two{grid-template-columns:1fr}
+      .modal{max-width:100% !important;margin:0 !important;border-radius:0}
+      .modal-overlay{padding:.5rem}
+      /* Service modal forms responsive */
+      [id^="serviceModalContent"] input,
+      [id^="serviceModalContent"] textarea,
+      [id^="serviceModalContent"] select {
+        width:100% !important;box-sizing:border-box !important;
+      }
+      [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important}
+    }
+    @media(max-width:480px){
+      .products-grid{grid-template-columns:1fr}
+      .hero-actions{flex-direction:column;align-items:center}
+      .about-stats{flex-direction:column;gap:1.5rem}
+      .modal-register-actions{flex-direction:column}
+    }
+
+    /* Responsive form grids inside modals */
+    @media(max-width:600px){
+      .modal-info-grid{grid-template-columns:1fr}
+      .form-row.two{grid-template-columns:1fr}
+      .modal-content{padding:1.5rem 1.2rem}
+      .reg-header{padding:1.8rem 1.5rem 1.2rem}
+    }
+  
+    /* ── TEAM MEMBER MODAL ── */
+    #teamModal{display:none;position:fixed;inset:0;z-index:300;align-items:center;justify-content:center;padding:1rem}
+    #teamModal.open{display:flex}
+    #teamModal .modal-backdrop{position:absolute;inset:0;background:rgba(45,35,28,.55);backdrop-filter:blur(6px)}
+    #teamModal .modal{position:relative;z-index:1;background:var(--sand);border-radius:4px;max-width:560px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.18)}
+    .tm-header{display:flex;align-items:center;gap:1.5rem;padding:2rem 2rem 1.2rem}
+    .tm-photo{width:80px;height:80px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--linen)}
+    .tm-photo img{width:100%;height:100%;object-fit:cover}
+    .tm-title{flex:1}
+    .tm-title h3{font-family:'Noto Serif TC',serif;font-size:var(--fs-lg);color:var(--deep);letter-spacing:.08em;margin-bottom:.2rem}
+    .tm-title p{font-size:var(--fs-xs);color:var(--warm);letter-spacing:.1em;line-height:1.6}
+    .tm-body{padding:.4rem 2rem 2.2rem}
+    .tm-creds{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+    .tm-creds li{display:flex;align-items:baseline;gap:.5rem;font-size:var(--fs-sm);color:var(--deep);line-height:1.6}
+    .tm-creds li::before{content:'●';color:var(--clay);font-size:.6rem;flex-shrink:0;margin-top:.2rem}
+    .tm-creds li.bio-item::before{content:none;display:none}
+    .tm-creds li.bio-item{display:block;align-items:unset;gap:0}
+    .tm-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;border:none;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--warm);font-size:1.3rem;opacity:.7;transition:opacity .2s}
+    .tm-close:hover{opacity:1}
+
+    </style>
+</head>
+<body class="weave-bg">
+
+<div class="reading-bar" id="readingBar"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="https://www.hoho-life.com" class="nav-logo" aria-label="好和工作坊">
+    <img class="nav-logo-img" src="data:image/png;base64,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" alt="好和工作坊" width="88" height="44" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">關於</a></li>
+    <li><a href="#team">團隊</a></li>
+    <li><a href="#services">服務</a></li>
+    <li><a href="#events">近期活動</a></li>
+    <li><a href="#products">能量商品</a></li>
+    <li><a href="#faq">Q&amp;A</a></li>
+    <li><a href="#" class="nav-cta" onclick="openBooking(event)">預約諮詢</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobile()">關於</a>
+  <a href="#team" onclick="closeMobile()">團隊</a>
+  <a href="#services" onclick="closeMobile()">服務</a>
+  <a href="#events" onclick="closeMobile()">近期活動</a>
+  <a href="#products" onclick="closeMobile()">能量商品</a>
+  <a href="#faq" onclick="closeMobile()">Q&amp;A</a>
+  <a href="#" onclick="closeMobile();openBooking(event)" style="color:var(--warm)">預約諮詢</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-ring"></div><div class="hero-ring"></div><div class="hero-ring"></div>
+  <p class="hero-eyebrow">Hoho Life · 好和工作坊</p>
+  <h1 class="hero-title serif">當你願意回到自己<br><em>生命的光就在那裡</em></h1>
+  <p class="hero-keywords">身心靈療癒｜催眠療癒｜靈氣療癒｜解惑諮詢</p>
+  <p class="hero-sub">身心靈能量療癒空間<br>陪伴你從迷霧中看見方向，找回內在的安定與豐盛</p>
+  <div class="hero-actions">
+    <a href="#events" class="btn-primary">探索近期活動</a>
+    <a href="#about" class="btn-ghost">了解好和</a>
+  </div>
+  <div class="hero-scroll"><span>向下探索</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-card">
+          <img src="images/about.jpg"/>
+          <div class="about-card-overlay"></div>
+          <div class="about-float serif">身心靈<br>一體<br>自在好生活</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-tag reveal">About · 關於好和</p>
+        <h2 class="section-title serif reveal reveal-delay-1">調整能量<br>讓生命更平靜<br>更豐盛</h2>
+        <div class="divider reveal reveal-delay-2"></div>
+        <p class="reveal reveal-delay-2">「好和」以調整能量，協助你更平靜、更健康、更豐盛喜悅為使命。萬物皆是能量，身體是能量、意念是能量、靈魂也是能量，三者之間的不同只是週期律動的不同。</p>
+        <p class="reveal reveal-delay-3">當身、心、靈一起運作時，你成為三位一體，而那個經驗就是神性。如果這三者能量運作和諧，你會是健康且完整的。我們陪伴你走到你滿意的軌道，好好過你的人生，拿回自己的力量。</p>
+        <div class="about-stats reveal reveal-delay-4">
+          <div class="stat-item"><div class="stat-num" style="font-family:'Cormorant Garamond',serif;font-style:italic">10+</div><div class="stat-label">年 療癒陪伴</div></div>
+          <div class="stat-item"><div class="stat-num" style="font-family:'Cormorant Garamond',serif;font-style:italic">500+</div><div class="stat-label">位 個案服務</div></div>
+          <div class="stat-item"><div class="stat-num" style="font-family:'Cormorant Garamond',serif;font-style:italic">4</div><div class="stat-label">位 專業教練</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="team-header">
+      <p class="section-tag reveal">Team · 認識我們</p>
+      <h2 class="section-title serif reveal reveal-delay-1">陪伴你的療癒夥伴</h2>
+      <div class="divider center reveal reveal-delay-2"></div>
+      <p style="color:var(--warm);font-size:var(--fs-sm);line-height:2;max-width:480px;margin:0 auto" class="reveal reveal-delay-3">每一位成員都走過自己的療癒旅程，帶著真實的生命經驗，陪伴你看見屬於你的道路。</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal" onclick="openTeamModal('Sylvie')" tabindex="0" role="button" aria-label="Sylvie 詳細介紹">
+        <div class="team-photo">
+          <img src="images/sylvie.jpg" alt="Sylvie" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>S</span></div>'"/>
+        </div>
+        <div class="team-name serif">Sylvie</div>
+        <div class="team-role">好和工作坊 帶領人<br>靈氣執行師 · 光的課程老師</div>
+        <div class="team-more">查看更多 ›</div>
+      </div>
+      <div class="team-card reveal reveal-delay-1" onclick="openTeamModal('Simone')" tabindex="0" role="button" aria-label="Simone 詳細介紹">
+        <div class="team-photo">
+          <img src="images/simone.jpg" alt="Simone" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>S</span></div>'"/>
+        </div>
+        <div class="team-name serif">Simone</div>
+        <div class="team-role">解惑教練<br>IAPC · CAMBMS 國際認證</div>
+        <div class="team-more">查看更多 ›</div>
+      </div>
+      <div class="team-card reveal reveal-delay-2" onclick="openTeamModal('Lois')" tabindex="0" role="button" aria-label="Lois 詳細介紹">
+        <div class="team-photo">
+          <img src="images/lois.jpg" alt="Lois" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>L</span></div>'"/>
+        </div>
+        <div class="team-name serif">Lois</div>
+        <div class="team-role">解惑教練 · 催眠執行師<br>聖火靈氣執行師</div>
+        <div class="team-more">查看更多 ›</div>
+      </div>
+      <div class="team-card reveal reveal-delay-3" onclick="openTeamModal('Kim')" tabindex="0" role="button" aria-label="Kim 詳細介紹">
+        <div class="team-photo">
+          <img src="images/kim.jpg" alt="Kim" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'team-photo-placeholder\'><span>K</span></div>'"/>
+        </div>
+        <div class="team-name serif">Kim</div>
+        <div class="team-role">解惑教練 · 催眠執行師<br>聖火靈氣執行師</div>
+        <div class="team-more">查看更多 ›</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="container" style="text-align:center">
+    <span class="phil-deco reveal">"</span>
+    <p class="phil-quote reveal reveal-delay-1">如果愛不能喚醒你，那麼生命便會用痛苦喚醒你。<br>直到你願意醒來，為自己做出改變。</p>
+    <p class="phil-attr reveal reveal-delay-2">— 好和工作坊 · 核心信念</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <p class="section-tag reveal">Services · 服務項目</p>
+      <h2 class="section-title serif reveal reveal-delay-1">從內在出發<br>找到屬於你的療癒路徑</h2>
+      <div class="divider center reveal reveal-delay-2"></div>
+    </div>
+    <div class="services-grid">
+
+      <!-- 解惑諮詢 -->
+      <div class="service-card reveal">
+        <img class="service-img" src="images/service-consulting.jpg" alt="解惑諮詢" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1573384666979-5679dd8c2536?w=600&q=75'"/>
+        <div class="service-body">
+          <div class="service-icon">✦</div>
+          <h3 class="service-name serif">解惑諮詢</h3>
+          <p class="service-desc">經德國 Timewaver 量子儀檢測，有效提升參與者能量，協助做自我探索與焦點議題釐清。與一般諮詢不同，解惑諮詢有能量場的運作，除清楚看見核心問題，也能找到具體協助，疏通卡點。獲美國 IAPC 與英國 CAMBMS 國際雙證照認可。</p>
+          <span class="service-tag">一對一 · 面對面</span>
+          <a href="#" onclick="openServiceModal('consulting');return false;" class="service-more">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            瞭解更多
+          </a>
+        </div>
+      </div>
+
+      <!-- 聖火靈氣 -->
+      <div class="service-card reveal reveal-delay-1">
+        <img class="service-img" src="images/service-reiki.jpeg" alt="聖火靈氣療癒" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=75'"/>
+        <div class="service-body">
+          <div class="service-icon">◎</div>
+          <h3 class="service-name serif">聖火靈氣療癒</h3>
+          <p class="service-desc">靈氣是被西方國家認證允許進入醫療體系的輔助療法。已多家醫院運用於臨床，協助病患促進身體的自癒能力，復原身體心理和精神疾病。靈(Rei)＝宇宙；氣(Ki)＝生命能量。靈氣意指宇宙生命的自然能量，透過雙手，重新將一個人帶回身心靈平衡。</p>
+          <span class="service-tag">一對一 · $2,500/次 · 90分鐘</span>
+          <a href="#" onclick="openServiceModal('reiki');return false;" class="service-more">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            瞭解更多
+          </a>
+        </div>
+      </div>
+
+      <!-- 催眠療癒 -->
+      <div class="service-card reveal reveal-delay-2">
+        <img class="service-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=75" alt="催眠療癒" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=75'"/>
+        <div class="service-body">
+          <div class="service-icon">∞</div>
+          <h3 class="service-name serif">催眠療癒</h3>
+          <p class="service-desc">深入潛意識層次，解開長期慣性與限制性信念，在安全的引導空間中接觸更完整的自己，整合所有內在面向。改善睡眠、舒緩慢性不適、釋放情緒卡關。</p>
+          <span class="service-tag">一對一 · 期間限定優惠 $3,000/2hrs</span>
+          <a href="#" onclick="openServiceModal('hypno');return false;" class="service-more">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            瞭解更多
+          </a>
+        </div>
+      </div>
+
+      <!-- SRT -->
+      <div class="service-card reveal reveal-delay-3">
+        <img class="service-img" src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=75" alt="SRT" loading="lazy" onerror="this.style.display='none'"/>
+        <div class="service-body">
+          <div class="service-icon">○</div>
+          <h3 class="service-name serif">SRT</h3>
+          <p class="service-desc">靈性反應療法（Spiritual Response Therapy），藉由 SRT 找出困惑已久的問題根源（工作、愛情、家庭、人際、財務等），將造成問題的負面設定或靈魂記錄移除，創造更美好豐盛的新人生。</p>
+          <span class="service-tag">個案 · $4,800 · 約90-120分鐘</span>
+          <a href="#" onclick="openServiceModal('srt');return false;" class="service-more">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            瞭解更多
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="container">
+    <div class="events-header">
+      <p class="section-tag reveal">Events &amp; Courses · 近期活動與課程</p>
+      <h2 class="section-title serif reveal reveal-delay-1">給自己一點時間<br>享受身心靈的釋放</h2>
+      <div class="divider reveal reveal-delay-2"></div>
+      <p style="color:var(--warm);font-size:var(--fs-sm);line-height:2;max-width:520px" class="reveal reveal-delay-3">不定期主題工作坊與課程，讓你在生活、關係、金錢、人生上更有方向，更自在。</p>
+    </div>
+    <div class="events-grid">
+
+      <!-- 光的課程 2026 -->
+      <div class="event-card reveal" onclick="openEvent('e1')">
+        <span class="event-badge ongoing">系列課程</span>
+        <div class="event-visual">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="光的課程 2026" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80'"/>
+          <div class="event-visual-overlay"></div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>每週二 19:00–21:30</span>
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>基隆路一段141號6F-2</span>
+          </div>
+          <h3 class="event-name serif">光的課程 2026</h3>
+          <p class="event-desc">為現代人設計的週期性身心靈安定課程，藉由不同光的力道，讓你在生活中看見自己的力量，找到前進的方向。從白色之光、金色之光到紫水晶之光，全年系列，歡迎插班。</p>
+          <div class="event-footer">
+            <div class="event-price">$800<sub>／堂 · $4,000/5堂</sub></div>
+            <button class="btn-event">了解&amp;報名</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 合一覺醒 夏季班+冬季班 -->
+      <div class="event-card reveal reveal-delay-1" onclick="openEvent('eA')">
+        <span class="event-badge season">2026 夏季 &amp; 冬季班</span>
+        <div class="event-visual">
+          <img src="images/oneness.jpg" alt="合一覺醒 2026" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'event-visual-fallback\'><span>◇</span></div>'"/>
+          <div class="event-visual-overlay"></div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>🌿 夏季 7/24–26 ｜ ❄️ 冬季 12/25–27</span>
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>台北信義區</span>
+          </div>
+          <h3 class="event-name serif">合一覺醒課程<br>2026 夏季班 &amp; 冬季班</h3>
+          <p class="event-desc">🌿 夏季班：7/24（五）7pm–10pm · 7/25（六）&  7/26（日）8:30am–6pm<br>❄️ 冬季班：12/25（五）7pm–10pm · 12/26（六）&  12/27（日）8:30am–6pm<br>透過呼吸、覺察、靜心與 Deeksha，釋放情緒負荷，重新設定生命程式。</p>
+          <div class="event-footer">
+            <div class="event-price">$28,000<sub>早鳥 $25,000</sub></div>
+            <button class="btn-event">了解&amp;報名</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 解惑諮詢教練培訓 -->
+      <div class="event-card reveal reveal-delay-2" onclick="openEvent('e3')">
+        <span class="event-badge limited">2026 招生中</span>
+        <div class="event-visual">
+          <img src="images/service-consulting.jpg" alt="解惑諮詢教練培訓" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'event-visual-fallback\'><span>✦</span></div>'"/>
+          <div class="event-visual-overlay"></div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>6月班 &amp; 10月班</span>
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>共 8 堂</span>
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>市政府站附近</span>
+          </div>
+          <h3 class="event-name serif">解惑諮詢教練培訓<br>國際證照班</h3>
+          <p class="event-desc">6月班（6/6起共8堂）、10月班（10/3起共8堂）。IAPC &amp; CAMBMS 雙國際認證。開課前1個月報名享早鳥優惠。提高生命視角，找到關鍵破口，看見可能性。</p>
+          <div class="event-footer">
+            <div class="event-price">早鳥<sub>詳洽優惠</sub></div>
+            <button class="btn-event">了解&amp;報名</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 聖火靈氣 夏冬季班 -->
+      <div class="event-card reveal reveal-delay-3" onclick="openEvent('e5')">
+        <span class="event-badge season">2026 夏季 &amp; 冬季班</span>
+        <div class="event-visual">
+          <img src="images/event-reiki.jpg" alt="聖火靈氣 2026" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'event-visual-fallback\'><span>○</span></div>'"/>
+          <div class="event-visual-overlay"></div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>上午10:00 ~ 下午5:30</span>
+            <span class="event-meta-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>台北信義區</span>
+          </div>
+          <h3 class="event-name serif">聖火靈氣執行師<br>一階 &amp; 二階 · 2026</h3>
+          <p class="event-desc">🌿 夏季班：一階 7/11、8/9；二階 8/15、8/16<br>❄️ 冬季班：一階 11/14、12/12；二階 12/19、12/20<br>成為靈氣執行師，讓身心靈更加完整，平衡自己，也可協助他人。</p>
+          <div class="event-footer">
+            <div class="event-price">詳洽<sub>我們</sub></div>
+            <button class="btn-event">了解&amp;報名</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="events-more reveal">
+      <a href="#" onclick="openBooking(event)">想了解最新場次與時間？聯繫我們取得第一手資訊 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE DETAIL MODAL -->
+<div class="modal-overlay" id="serviceModal" role="dialog" aria-modal="true">
+  <div class="modal" style="max-width:660px">
+    <button class="modal-close" onclick="closeServiceModal()" aria-label="關閉">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div id="serviceModalContent"></div>
+  </div>
+</div>
+
+<!-- ONENESS REGISTRATION MODAL -->
+<div class="modal-overlay" id="onenessRegModal" role="dialog" aria-modal="true">
+  <div class="modal" style="max-width:560px">
+    <button class="modal-close" onclick="document.getElementById('onenessRegModal').classList.remove('open');document.body.style.overflow=''" aria-label="關閉">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div style="padding:2.2rem 3rem 1.5rem;background:var(--linen);border-bottom:1px solid rgba(180,160,130,.2)">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-sm);color:var(--warm);letter-spacing:.2em;margin-bottom:.4rem" id="onenessRegBadge">合一覺醒課程 · 報名</p>
+      <h2 id="onenessRegTitle" style="font-family:'Noto Serif TC',serif;font-size:var(--fs-xl);font-weight:300;color:var(--deep);line-height:1.4"></h2>
+    </div>
+    <div style="padding:1.8rem 3rem 2.5rem">
+      <div style="background:var(--linen);padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:var(--fs-sm);color:var(--warm);line-height:1.9">
+        <strong style="color:var(--deep);display:block;margin-bottom:.3rem">📅 班次費用</strong>
+        🌿 夏季班（7/24–26）：$28,000（早鳥 $25,000，截止 7/10）<br>
+        ❄️ 冬季班（12/25–27）：$28,000（早鳥 $25,000，截止 12/10）<br>
+        <strong style="color:var(--deep);display:block;margin-top:.4rem;margin-bottom:.2rem">💳 匯款資訊</strong>
+        帳戶姓名：<strong style="color:var(--deep)">陳懿</strong><br>
+        銀行代號：<strong style="color:var(--deep)">803 聯邦銀行永春分行</strong><br>
+        帳戶號碼：<strong style="color:var(--deep)">079-50-0033741</strong><br>
+        <span style="font-size:var(--fs-xs);opacity:.7">※ 報名手續將在匯款確認後才正式完成</span>
+      </div>
+      <form id="onenessForm" onsubmit="submitOnenessReg(event)" novalidate>
+        <div style="display:grid;gap:.9rem">
+          <div class="form-group">
+            <label class="form-label">課程班別 <span class="req">*</span></label>
+            <div class="radio-group" style="flex-direction:column;gap:.6rem">
+              <label class="radio-label"><input type="radio" name="oneness_season" value="夏季班（7/24–26）" required/> 🌿 夏季班（7/24–26）</label>
+              <label class="radio-label"><input type="radio" name="oneness_season" value="冬季班（12/25–27）"/> ❄️ 冬季班（12/25–27）</label>
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="form-group">
+              <label class="form-label">中文姓名 <span class="req">*</span></label>
+              <input type="text" name="name_zh" class="form-input" placeholder="中文姓名" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">英文姓名 <span class="req">*</span><span style="font-size:10px;opacity:.6">（須與護照相同）</span></label>
+              <input type="text" name="name_en" class="form-input" placeholder="English Name" required/>
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="form-group">
+              <label class="form-label">手機 <span class="req">*</span></label>
+              <input type="tel" name="phone" class="form-input" placeholder="09XX-XXX-XXX" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span class="req">*</span></label>
+              <input type="email" name="email" class="form-input" placeholder="your@email.com" required/>
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="form-group">
+              <label class="form-label">性別</label>
+              <div class="radio-group" style="padding-top:.5rem">
+                <label class="radio-label"><input type="radio" name="gender" value="女"/> 女</label>
+                <label class="radio-label"><input type="radio" name="gender" value="男"/> 男</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">飲食習慣</label>
+              <select name="diet" class="form-input">
+                <option value="一般">一般</option>
+                <option value="蛋奶素">蛋奶素</option>
+                <option value="全素">全素</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">你如何得知這個活動？<span class="req">*</span></label>
+            <input type="text" name="source" class="form-input" placeholder="朋友介紹 / Instagram / Facebook…" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">是否偕同親友一起上課？</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="together" value="否" checked/> 否</label>
+              <label class="radio-label"><input type="radio" name="together" value="是"/> 是</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">一起上課的親友姓名及關係（若無請空白）</label>
+            <input type="text" name="companion" class="form-input" placeholder="姓名 / 關係"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">您的匯款帳號後五碼 <span class="req">*</span></label>
+            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">備注</label>
+            <textarea name="note" class="form-input" rows="2" placeholder="我們還應該知道什麼？" style="resize:vertical"></textarea>
+          </div>
+        </div>
+        <div id="onenessMsg" style="display:none;margin-top:1rem;padding:.8rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div>
+        <button type="submit" class="form-submit" style="margin-top:1.2rem">送出報名</button>
+        <p style="text-align:center;font-size:var(--fs-xs);color:var(--warm);opacity:.45;margin-top:.8rem;line-height:1.8">
+          聯絡人：蘇怡芬　0938-134-511　onenesscity100@gmail.com
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- JIEHU REGISTRATION MODAL -->
+<div class="modal-overlay" id="jiehuRegModal" role="dialog" aria-modal="true">
+  <div class="modal" style="max-width:560px">
+    <button class="modal-close" onclick="document.getElementById('jiehuRegModal').classList.remove('open');document.body.style.overflow=''" aria-label="關閉">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div style="padding:2.2rem 3rem 1.5rem;background:var(--linen);border-bottom:1px solid rgba(180,160,130,.2)">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-sm);color:var(--warm);letter-spacing:.2em;margin-bottom:.4rem">解惑教練培訓 · 2026年報名</p>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:var(--fs-xl);font-weight:300;color:var(--deep);line-height:1.4">解惑諮詢教練培訓<br>國際證照班</h2>
+    </div>
+    <div style="padding:1.8rem 3rem 2.5rem">
+      <div style="background:var(--linen);padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:var(--fs-sm);color:var(--warm);line-height:2">
+        <strong style="color:var(--deep);display:block;margin-bottom:.4rem">📅 課程班次與費用</strong>
+        <strong style="color:var(--deep)">6月班</strong>：原價 NT$68,000｜<span style="color:var(--moss)">05/15前早鳥 NT$45,000</span><br>
+        上課日：06/06、07、13、14、27、28、07/04、05（共8堂）<br>
+        <strong style="color:var(--deep)">10月班</strong>：原價 NT$68,000｜<span style="color:var(--moss)">09/15前早鳥 NT$45,000</span><br>
+        上課日：10/03、04、17、18、24、25、31、11/01（共8堂）<br>
+        上課時間：10:00–17:00<br>
+        <strong style="color:var(--deep);display:block;margin-top:.6rem">💳 匯款資訊</strong>
+        帳戶姓名：<strong style="color:var(--deep)">陳懿</strong><br>
+        銀行代號：<strong style="color:var(--deep)">803 聯邦銀行永春分行</strong><br>
+        帳戶號碼：<strong style="color:var(--deep)">079-50-0033741</strong><br>
+        <span style="font-size:var(--fs-xs);opacity:.7">※ 匯款確認後報名手續才正式完成</span>
+      </div>
+      <form id="jiehuForm" onsubmit="submitJiehuReg(event)" novalidate>
+        <div style="display:grid;gap:.9rem">
+          <div class="form-row two">
+            <div class="form-group">
+              <label class="form-label">中文姓名 <span class="req">*</span></label>
+              <input type="text" name="name" class="form-input" placeholder="您的中文姓名" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">性別 <span class="req">*</span></label>
+              <div class="radio-group" style="padding-top:.5rem">
+                <label class="radio-label"><input type="radio" name="gender" value="女" required/> 女</label>
+                <label class="radio-label"><input type="radio" name="gender" value="男"/> 男</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="form-group">
+              <label class="form-label">手機 <span class="req">*</span></label>
+              <input type="tel" name="phone" class="form-input" placeholder="09XX-XXX-XXX" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span class="req">*</span></label>
+              <input type="email" name="email" class="form-input" placeholder="your@email.com" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">介紹人 <span class="req">*</span></label>
+            <input type="text" name="referrer" class="form-input" placeholder="介紹您來的朋友姓名" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">課程班別 <span class="req">*</span></label>
+            <div class="radio-group" style="flex-direction:column;gap:.6rem">
+              <label class="radio-label"><input type="radio" name="course_class" value="6月班" required/> 6月班（原價 $68,000｜早鳥 $45,000）</label>
+              <label class="radio-label"><input type="radio" name="course_class" value="10月班"/> 10月班（原價 $68,000｜早鳥 $45,000）</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">您的匯款帳號後五碼 <span class="req">*</span></label>
+            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5"/>
+          </div>
+        </div>
+        <div id="jiehuMsg" style="display:none;margin-top:1rem;padding:.8rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div>
+        <button type="submit" class="form-submit" style="margin-top:1.2rem">送出報名</button>
+        <p style="text-align:center;font-size:var(--fs-xs);color:var(--warm);opacity:.45;margin-top:.8rem;line-height:1.8">
+          聯絡人：蘇怡芬　0938-134-511　onenesscity100@gmail.com
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- REIKI TRAINING REGISTRATION MODAL -->
+<div class="modal-overlay" id="reikiTrainingRegModal" role="dialog" aria-modal="true">
+  <div class="modal" style="max-width:580px">
+    <button class="modal-close" onclick="document.getElementById('reikiTrainingRegModal').classList.remove('open');document.body.style.overflow=''" aria-label="關閉">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div style="padding:2.2rem 3rem 1.5rem;background:var(--linen);border-bottom:1px solid rgba(180,160,130,.2)">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-sm);color:var(--warm);letter-spacing:.2em;margin-bottom:.4rem">聖火靈氣執行師師資培訓 · 報名</p>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:var(--fs-xl);font-weight:300;color:var(--deep);line-height:1.4">聖火靈氣執行師培訓<br>2026</h2>
+    </div>
+    <div style="padding:1.8rem 3rem 2.5rem">
+      <div style="background:var(--linen);padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:var(--fs-sm);color:var(--warm);line-height:1.9">
+        <strong style="color:var(--deep);display:block;margin-bottom:.3rem">📅 班次與上課時間</strong>
+        🌿 夏季班：一階 7/11（六）、8/9（六）；二階 8/15（六）、8/16（日）<br>
+        ❄️ 冬季班：一階 11/14（六）、12/12（六）；二階 12/19（六）、12/20（日）<br>
+        上課時間：上午10:00 ~ 下午5:30<br>
+        <strong style="color:var(--deep);display:block;margin-top:.6rem;margin-bottom:.3rem">💰 課程費用</strong>
+        一＋二階費用：<strong style="color:var(--deep)">NT$28,000</strong><br>
+        <strong style="color:var(--deep);display:block;margin-top:.6rem;margin-bottom:.3rem">💳 匯款資訊</strong>
+        帳戶姓名：<strong style="color:var(--deep)">陳懿</strong><br>
+        銀行代號：<strong style="color:var(--deep)">803 聯邦銀行永春分行</strong><br>
+        帳戶號碼：<strong style="color:var(--deep)">079-50-0033741</strong><br>
+        <strong style="color:var(--deep);display:block;margin-top:.6rem;margin-bottom:.3rem">退費機制</strong>
+        <span style="font-size:var(--fs-xs)">開課前14天以上取消：退費100%；開課前7-13天取消：退費70%；開課前1-6天取消：退費50%；開課當天或之後：不予退費。若因不可抗力因素，得協商改期或延課。</span>
+      </div>
+      <form id="reikiTrainingForm" onsubmit="submitReikiTrainingReg(event)" novalidate>
+        <div style="display:grid;gap:.9rem">
+          <div class="form-group">
+            <label class="form-label">課程班別 <span class="req">*</span></label>
+            <div class="radio-group" style="flex-direction:column;gap:.6rem">
+              <label class="radio-label"><input type="radio" name="reiki_season" value="夏季班 (一+二階)" required/> 🌿 夏季班(一+二階)</label>
+              <label class="radio-label"><input type="radio" name="reiki_season" value="冬季班(一+二階)"/> ❄️ 冬季班(一+二階)</label>
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="form-group">
+              <label class="form-label">中文姓名 <span class="req">*</span></label>
+              <input type="text" name="name_zh" class="form-input" placeholder="中文姓名" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">英文姓名 (須與護照相同) <span class="req">*</span></label>
+              <input type="text" name="name_en" class="form-input" placeholder="English Name" required/>
+            </div>
+          </div>
+          <div class="form-row two">
+            <div class="form-group">
+              <label class="form-label">手機 <span class="req">*</span></label>
+              <input type="tel" name="phone" class="form-input" placeholder="09XX-XXX-XXX" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span class="req">*</span></label>
+              <input type="email" name="email" class="form-input" placeholder="your@email.com" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">性別 <span class="req">*</span></label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="gender" value="女" required/> 女</label>
+              <label class="radio-label"><input type="radio" name="gender" value="男"/> 男</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">您的匯款帳號後五碼 <span class="req">*</span></label>
+            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">介紹人</label>
+            <input type="text" name="referrer" class="form-input" placeholder="介紹您來的朋友姓名（選填）"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">備注</label>
+            <textarea name="note" class="form-input" rows="2" placeholder="我們還應該知道什麼？" style="resize:vertical"></textarea>
+          </div>
+        </div>
+        <div id="reikiTrainingMsg" style="display:none;margin-top:1rem;padding:.8rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div>
+        <button type="submit" class="form-submit" style="margin-top:1.2rem">送出報名</button>
+        <p style="text-align:center;font-size:var(--fs-xs);color:var(--warm);opacity:.45;margin-top:.8rem;line-height:1.8">
+          聯絡人：蘇怡芬　0938-134-511　onenesscity100@gmail.com
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- EVENT DETAIL MODAL -->
+<div class="modal-overlay" id="eventModal" role="dialog" aria-modal="true">
+  <div class="modal" id="eventModalInner">
+    <button class="modal-close" onclick="closeEventModal()" aria-label="關閉">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div id="eventModalContent"></div>
+  </div>
+</div>
+
+<!-- REGISTRATION FORM MODAL -->
+<div class="modal-overlay" id="regModal" role="dialog" aria-modal="true">
+  <div class="modal" style="max-width:520px">
+    <button class="modal-close" onclick="closeRegModal()" aria-label="關閉">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="reg-header">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-sm);color:var(--warm);letter-spacing:.22em;margin-bottom:.4rem">Registration · 活動報名</p>
+      <h2 id="regModalTitle" style="font-family:'Noto Serif TC',serif;font-size:var(--fs-xl);font-weight:300;color:var(--deep);letter-spacing:.04em;line-height:1.4"></h2>
+    </div>
+    <div style="padding:2rem 3rem 2.5rem">
+      <form id="regForm" onsubmit="submitReg(event)" novalidate>
+        <div class="form-row two">
+          <div class="form-group">
+            <label class="form-label">中文姓名 <span class="req">*</span></label>
+            <input type="text" name="name" class="form-input" placeholder="您的中文姓名" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">性別 <span class="req">*</span></label>
+            <div class="radio-group" style="padding-top:.55rem">
+              <label class="radio-label"><input type="radio" name="gender" value="女" required/> 女</label>
+              <label class="radio-label"><input type="radio" name="gender" value="男"/> 男</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row two">
+          <div class="form-group">
+            <label class="form-label">手機 <span class="req">*</span></label>
+            <input type="tel" name="phone" class="form-input" placeholder="09XX-XXX-XXX" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email <span class="req">*</span></label>
+            <input type="email" name="email" class="form-input" placeholder="your@email.com" required/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">介紹人</label>
+            <input type="text" name="referrer" class="form-input" placeholder="介紹您來的朋友姓名（選填）"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">課程班別 <span class="req">*</span></label>
+            <select name="course" id="regCourseSelect" class="form-input" required>
+              <option value="">— 請選擇 —</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">備注</label>
+            <textarea name="note" class="form-input" rows="2" placeholder="任何想告訴我們的（選填）" style="resize:vertical"></textarea>
+          </div>
+        </div>
+        <div id="regMsg"></div>
+        <button type="submit" class="form-submit">送出報名</button>
+      </form>
+      <p style="text-align:center;font-size:var(--fs-xs);color:var(--warm);opacity:.45;margin-top:1rem;line-height:1.8">提交後我們將以 Email 或電話與您確認，通常一個工作天內回覆。</p>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true">
+  <div class="modal" style="max-width:540px">
+    <button class="modal-close" onclick="closeBooking()" aria-label="關閉">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div style="padding:3rem 3rem 2rem;background:var(--linen);border-bottom:1px solid rgba(180,160,130,.25)">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-sm);color:var(--warm);letter-spacing:.22em;margin-bottom:.5rem">Booking · 預約諮詢</p>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:var(--fs-xl);font-weight:300;color:var(--deep);letter-spacing:.04em;line-height:1.4;margin-bottom:.5rem">選擇你有興趣的課程<br>填寫報名表</h2>
+      <p style="font-size:var(--fs-sm);color:var(--warm);opacity:.7;line-height:1.8">每一種都歡迎，我們通常在一個工作天內回覆。</p>
+    </div>
+    <div style="padding:2rem 3rem">
+      <p class="booking-section-title">直接聯繫</p>
+      <div class="booking-methods">
+        <a href="tel:0938134511" class="booking-card">
+          <div class="booking-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 11.54a19.79 19.79 0 01-3.07-8.67A2 2 0 012.61 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.59a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><p class="booking-label">電話預約</p><p class="booking-value">0938-134-511</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </a>
+        <a href="mailto:onenesscity100@gmail.com?subject=預約諮詢&body=您好，我想預約：%0A%0A服務項目：%0A希望時間：%0A姓名：%0A%0A謝謝！" class="booking-card">
+          <div class="booking-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div style="min-width:0;flex:1;overflow:hidden"><p class="booking-label">Email 預約</p><p class="booking-value" style="font-size:clamp(.72rem,2.5vw,var(--fs-base));word-break:break-all;white-space:normal;line-height:1.4">onenesscity100@gmail.com</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </a>
+      </div>
+      <div class="modal-sep"><span>或選擇有興趣的課程報名</span></div>
+      <div class="booking-methods" style="gap:.6rem">
+        <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openServiceModal('consulting')">
+          <div class="booking-icon" style="background:var(--warm)"><span style="color:var(--sand);font-size:1.1rem">✦</span></div>
+          <div><p class="booking-label">服務預約</p><p class="booking-value">解惑諮詢 — 報名表</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+        <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openServiceModal('reiki')">
+          <div class="booking-icon" style="background:var(--warm)"><span style="color:var(--sand);font-size:1.1rem">◎</span></div>
+          <div><p class="booking-label">服務預約</p><p class="booking-value">聖火靈氣療癒 — 報名表</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+        <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openServiceModal('hypno')">
+          <div class="booking-icon" style="background:var(--warm)"><span style="color:var(--sand);font-size:1.1rem">∞</span></div>
+          <div><p class="booking-label">服務預約</p><p class="booking-value">催眠療癒 — 報名表</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+        <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openServiceModal('srt')">
+          <div class="booking-icon" style="background:var(--warm)"><span style="color:var(--sand);font-size:1.1rem">○</span></div>
+          <div><p class="booking-label">服務預約</p><p class="booking-value">SRT — 報名表</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+        <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openEvent('eA')">
+          <div class="booking-icon" style="background:var(--clay)"><span style="color:var(--sand);font-size:1.1rem">◇</span></div>
+          <div><p class="booking-label">課程報名</p><p class="booking-value">合一覺醒 2026 — 報名表</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+        <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openEvent('e5')">
+          <div class="booking-icon" style="background:var(--clay)"><span style="color:var(--sand);font-size:1.1rem">◎</span></div>
+          <div><p class="booking-label">課程報名</p><p class="booking-value">聖火靈氣執行師培訓 — 報名表</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+        <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openEvent('e3')">
+          <div class="booking-icon" style="background:var(--clay)"><span style="color:var(--sand);font-size:1.1rem">✦</span></div>
+          <div><p class="booking-label">課程報名</p><p class="booking-value">解惑教練培訓 — 報名表</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+      </div>
+      <div class="booking-hours-box">
+        <p>服務時間 <strong>週一至週六</strong>　AM 10:00 – PM 6:00</p>
+        <p>我們通常在 <strong>一個工作天</strong> 內回覆您的訊息</p>
+      </div>
+      <p class="modal-note">初次接觸？歡迎先透過 Email 簡單說明你的狀況，<br>我們會為你推薦最適合的服務起點。</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div style="margin-bottom:3.5rem">
+      <p class="section-tag reveal">Energy Products · 五感能量商品</p>
+      <h2 class="section-title serif reveal reveal-delay-1">開啟五感<br>讓每日平衡又開心</h2>
+      <div class="divider reveal reveal-delay-2"></div>
+      <p style="color:var(--warm);font-size:var(--fs-sm);line-height:2;max-width:480px" class="reveal reveal-delay-3">身體，支援肉身的存在。心靈，擴展對內在的探索。靈魂，讓我們知道宇宙一直都在。藉由五感能量商品，讓我們身心靈一體，自在好生活。</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-item reveal">
+        <div class="product-img-wrap">
+          <img class="product-img" src="images/incense.jpg" alt="七色線香" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="product-img-placeholder" style="display:none"><span>🌿</span></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name serif">七色線香</div>
+          <div class="product-price">$800 <span>／組</span></div>
+          <div class="product-slogan">『它很有趣』</div>
+          <div class="product-note">一組共七隻，隨機抽取，了解該日所需能量，藉由嗅覺安定身心，清理對應脈輪。</div>
+          <a href="mailto:onenesscity100@gmail.com?subject=我想購買七色線香" class="btn-buy">立即購買</a>
+        </div>
+      </div>
+
+      <div class="product-item reveal reveal-delay-1">
+        <div class="product-img-wrap">
+          <img class="product-img" src="images/black-tea.jpg" alt="安化黑茶" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="product-img-placeholder" style="display:none"><span>🍵</span></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name serif">安化黑茶</div>
+          <div class="product-price">$500 <span>／包（120g）</span></div>
+          <div class="product-slogan">『它很珍貴』</div>
+          <div class="product-note">強化新陳代謝，增加免疫力，降脂減肥，消炎解毒。一包共120克，可當水喝。</div>
+          <a href="https://onenesscity.pixnet.net/blog/post/233764056" target="_blank" rel="noopener" class="btn-buy">了解更多</a>
+        </div>
+      </div>
+
+      <div class="product-item reveal reveal-delay-2">
+        <div class="product-img-wrap">
+          <img class="product-img" src="images/bath-pack.jpg" alt="奇楠葉除障沐浴包" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="product-img-placeholder" style="display:none"><span>🛁</span></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name serif">奇楠葉除障沐浴包</div>
+          <div class="product-price">$100 <span>／包</span></div>
+          <div class="product-slogan">『它很紓壓』</div>
+          <div class="product-note">累累時來一包泡一下，跟疲勞說掰掰，身心輕起來，泡完更好睡，睡完全身活起來。</div>
+          <a href="mailto:onenesscity100@gmail.com?subject=我想購買除障沐浴包" class="btn-buy">立即購買</a>
+        </div>
+      </div>
+
+      <div class="product-item reveal reveal-delay-3">
+        <div class="product-img-wrap">
+          <img class="product-img" src="images/incense-holder.png" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="product-img-placeholder" style="display:none"><span>◯</span></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name serif">太公線香座</div>
+          <div class="product-price">$800 <span>／座</span></div>
+          <div class="product-slogan">『它很可愛』</div>
+          <div class="product-note">太公除了會釣魚，還會拿香，每日看太公聞香，心情舒壓。</div>
+          <a href="mailto:onenesscity100@gmail.com?subject=我想購買太公線香座" class="btn-buy">立即購買</a>
+        </div>
+      </div>
+
+      <div class="product-item reveal reveal-delay-4">
+        <div class="product-img-wrap">
+          <img class="product-img" src="images/service-consulting.jpg" alt="解惑卡" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="product-img-placeholder" style="display:none"><span>✦</span></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name serif">解惑卡</div>
+          <div class="product-price">$2,500 <span>／盒</span></div>
+          <div class="product-slogan">『它很神奇』</div>
+          <div class="product-note">把你頭上的烏雲撥開，讓陽光照進來。建議搭配教練一起使用，療效更快。</div>
+          <a href="mailto:onenesscity100@gmail.com?subject=我想購買解惑卡" class="btn-buy">立即購買</a>
+        </div>
+      </div>
+
+      <div class="product-item reveal reveal-delay-4">
+        <div class="product-img-wrap">
+          <img class="product-img" src="images/powersymbol.jpg" alt="力量圖騰多功能背心" loading="lazy" onerror="this.style.display='none'"/>
+          <div class="product-img-placeholder" style="display:none"><span>🦺</span></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name serif">力量圖騰多功能背心</div>
+          <div class="product-price">$1,000 <span>／件</span></div>
+          <div class="product-slogan">『它很給力』</div>
+          <div class="product-note">任何時刻，需要力量勇氣或安定，穿上它，輕鬆啟行。多功能設計，日常穿搭與能量加持兼備。</div>
+          <a href="mailto:onenesscity100@gmail.com?subject=我想購買力量圖騰多功能背心" class="btn-buy">立即購買</a>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:2.5rem;font-size:var(--fs-sm);color:var(--warm);opacity:.65" class="reveal">
+      洽詢商品 → <a href="mailto:onenesscity100@gmail.com?subject=能量商品詢問" style="border-bottom:1px solid currentColor;padding-bottom:1px">onenesscity100@gmail.com</a>
+    </p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <p class="section-tag reveal">Stories · 真實回饋</p>
+      <h2 class="section-title serif reveal reveal-delay-1">他們如何<br>找回自己的光</h2>
+      <div class="divider center reveal reveal-delay-2"></div>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">諮詢過程屢次讓我雞皮疙瘩，真的不得不說，很神奇且直指核心，讓我看到一直知道卻沒有去直視面對的問題。這次體驗讓我再次感受到「宇宙的奧妙」！並知道照顧好自己，就能成為別人的光。</p>
+        <div class="testimonial-author">— 鍾小姐 · 解惑諮詢體驗</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <p class="testimonial-text">星期一請 Lois 老師替我做催眠體驗，過程中我並不感覺自己失去意識，反而是清醒的狀態，大約1.5小時。做完後驚訝地發現自己過敏的症狀消失了80%！</p>
+        <div class="testimonial-author">— B 先生 · 催眠療癒體驗</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <p class="testimonial-text">培訓讓我明白，除了我所熟悉的自己外，還有一個我不太熟悉的自己。當我去整合內在所有面向，內在會有一股力量長出，讓我感覺更踏實、更有力量。</p>
+        <div class="testimonial-author">— S 先生 · 解惑諮詢教練培訓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <p class="cta-pre reveal">準備好了嗎</p>
+      <h2 class="cta-title serif reveal reveal-delay-1">給自己一個機會<br>重新看見內在的光</h2>
+      <button onclick="openBooking(event)" class="btn-light reveal reveal-delay-2">立即預約諮詢</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div style="margin-bottom:3.5rem">
+      <p class="section-tag reveal">FAQ · 常見問題</p>
+      <h2 class="section-title serif reveal reveal-delay-1">你可能想知道</h2>
+      <div class="divider reveal reveal-delay-2"></div>
+    </div>
+    <ul class="faq-list">
+      <li class="faq-item reveal">
+        <button class="faq-q serif">第一次接觸能量療癒，我適合從哪個服務開始？<span class="faq-icon"></span></button>
+        <div class="faq-a">建議從「解惑諮詢」開始，這是最直接、最個人化的入口，教練會根據你目前的狀況引導你，找到最適合的方向。如果你喜歡群體能量，也可以先參加光的課程體驗看看。</div>
+      </li>
+      <li class="faq-item reveal reveal-delay-1">
+        <button class="faq-q serif">什麼是解惑諮詢？解惑諮詢和一般心理諮商有什麼不同？<span class="faq-icon"></span></button>
+        <div class="faq-a">解惑諮詢結合能量學與心理學工具，除了處理表面問題，更深入探索影響人生的七要素，協助你看見問題背後的能量模式。經德國 Timewaver 量子儀檢測，有效提升參與者能量，協助做自我探索與焦點議題釐清。獲美國 IAPC 與英國 CAMBMS 國際雙證照認可。</div>
+      </li>
+      <li class="faq-item reveal reveal-delay-2">
+        <button class="faq-q serif">光的課程適合新手嗎？可以中途加入嗎？<span class="faq-icon"></span></button>
+        <div class="faq-a">光的課程適合希望提升自我覺察、探索內在成長與學習能量運作的朋友，無論是否接觸過身心靈領域都可以參與。課程依不同階段與主題進行，可隨時加入，歡迎報名參與。</div>
+      </li>
+      <li class="faq-item reveal reveal-delay-3">
+        <button class="faq-q serif">催眠療癒可以改善什麼問題？<span class="faq-icon"></span></button>
+        <div class="faq-a">催眠療癒是一種深入潛意識的探索方式，協助看見情緒、信念與重複模式的根源。常見主題包含情緒困擾、壓力焦慮、關係議題、自我價值、人生方向、童年經驗，以及想更深入認識自己的朋友。每個人的體驗不同，催眠的重點不在於改變你，而是協助你看見自己。</div>
+      </li>
+      <li class="faq-item reveal reveal-delay-4">
+        <button class="faq-q serif">療癒課程可以線上進行嗎？<span class="faq-icon"></span></button>
+        <div class="faq-a">解惑諮詢提供一對一實體諮詢，只能面對面進行。靈氣療癒則可接受面對面和遠距進行，靈氣是宇宙能量，不受時間空間限制。面對面服務位於台北市基隆路一段141號6樓之2，近市政府捷運站。</div>
+      </li>
+      <li class="faq-item reveal reveal-delay-4">
+        <button class="faq-q serif">情緒與身體疾病有關係嗎？<span class="faq-icon"></span></button>
+        <div class="faq-a">許多身體的不適，除了生理因素外，也可能與長期累積的情緒、壓力與內在信念有關。當情緒無法被看見或表達時，有時會透過身體症狀傳遞訊息。歡迎透過個案預約，覺察與探索，理解情緒、身體與生命課題之間的關聯，找回內在力量。</div>
+      </li>
+<li class="faq-item reveal reveal-delay-4">
+        <button class="faq-q serif">靈氣療癒是什麼？<span class="faq-icon"></span></button>
+        <div class="faq-a">靈氣療癒（Reiki）是一種溫和的能量療癒方式，透過能量流動協助身心放鬆、釋放壓力與恢復平衡。在療癒過程中，每個人的感受不同，可能感受到溫暖、平靜、放鬆或更清晰的內在覺察。靈氣療癒並非醫療行為，而是陪伴身心回到更和諧的狀態。</div>
+
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3 class="serif">好和工作坊</h3>
+      <p>以調整能量，協助你更平靜、更健康、更豐盛喜悅為使命。好生活，一起過。</p>
+      <div style="margin-top:.8rem;font-size:var(--fs-xs);letter-spacing:.08em;opacity:.45;line-height:2">
+        台北市基隆路一段141號6樓之2<br>近市政府捷運站
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=100063817162234" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@好和hoho-lifecom" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--ink)"/></svg>
+        </a>
+        <a href="https://onenesscity.pixnet.net/blog" target="_blank" rel="noopener" class="social-btn" aria-label="部落格">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 20h9" stroke="rgba(245,240,232,0.6)" stroke-width="1.5" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" stroke="rgba(245,240,232,0.6)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>服務 &amp; 課程</h4>
+      <ul>
+        <li><a href="#services" onclick="setTimeout(()=>openServiceModal('consulting'),350)">解惑諮詢</a></li>
+        <li><a href="#services" onclick="setTimeout(()=>openServiceModal('reiki'),350)">聖火靈氣療癒</a></li>
+        <li><a href="#services" onclick="setTimeout(()=>openServiceModal('hypno'),350)">催眠療癒</a></li>
+        <li><a href="#services" onclick="setTimeout(()=>openServiceModal('srt'),350)">SRT</a></li>
+        <li><a href="#events" onclick="setTimeout(()=>openEvent('e1'),300)">光的課程</a></li>
+        <li><a href="#events" onclick="setTimeout(()=>openEvent('eA'),300)">合一覺醒課程</a></li>
+        <li><a href="#events" onclick="setTimeout(()=>openEvent('e3'),300)">解惑諮詢教練培訓</a></li>
+        <li><a href="#events" onclick="setTimeout(()=>openEvent('e5'),300)">聖火靈氣執行師培訓</a></li>
+        <li><a href="#products">能量商品</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>聯絡資訊</h4>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 11.54a19.79 19.79 0 01-3.07-8.67A2 2 0 012.61 1h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.91 8.59a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:0938134511">0938-134-511</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:onenesscity100@gmail.com">onenesscity100@gmail.com</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>台北市基隆路一段141號<br>6樓之2・近市政府站</span>
+      </div>
+      <div style="margin-top:1rem;font-size:var(--fs-xs);line-height:2.2;opacity:.4">
+        週一至週六　AM 10:00 – PM 6:00
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 好和工作坊 Hoho Life. All rights reserved.</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--clay);opacity:.5">好生活，一起過。</span>
+  </div>
+</footer>
+
+<script>
+// ─── SERVICE DETAIL DATA ─────────────────────────────────────
+const SERVICES = {
+  consulting:{
+   img:'images/service-consulting.jpg',
+    badge:'解惑諮詢', title:'解惑諮詢・一對一',
+    body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-sm);color:var(--warm);line-height:2.2;margin-bottom:1.2rem">與一般諮詢不同，解惑諮詢有<strong style="color:var(--deep)">能量場的運作</strong>，除能清楚看見核心問題，也能找到具體協助，疏通卡點。經德國 Timewaver 量子儀檢測，有效提升參與者能量。</p><p style="font-size:var(--fs-sm);color:var(--warm);line-height:2.2;margin-bottom:1.2rem">當你越了解自己，就能把自己力量發揮到最大。這套牌卡結合能量學與心理學，協助你消除重複困擾，獲得解答和療癒。不管職場上的、和父母親人的關係、財務、伴侶、身體健康...甚至是...自我價值議題都可以。歡迎你來體驗神奇的解惑諮詢！</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem"><div style="background:var(--linen);padding:.9rem;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--warm);opacity:.7;margin-bottom:.3rem">✦</div><div style="font-family:'Noto Serif TC',serif;font-size:var(--fs-sm);color:var(--deep);margin-bottom:.2rem">能量會說話</div><div style="font-size:var(--fs-xs);color:var(--warm);opacity:.75;line-height:1.7">諮詢過程能量場同步運作，清楚看見核心問題，找到具體協助。</div></div><div style="background:var(--linen);padding:.9rem;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--warm);opacity:.7;margin-bottom:.3rem">◎</div><div style="font-family:'Noto Serif TC',serif;font-size:var(--fs-sm);color:var(--deep);margin-bottom:.2rem">雙國際證照</div><div style="font-size:var(--fs-xs);color:var(--warm);opacity:.75;line-height:1.7">美國 IAPC 與英國 CAMBMS 國際認可，結合能量學與心理學。</div></div></div><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.6rem">教練怎麼說</p><p style="font-size:var(--fs-sm);color:var(--deep);line-height:2;font-style:italic;margin-bottom:.6rem">「解惑是陪伴你看見自己生活的小習慣，去走到你滿意的軌道，好好過你的人生，拿回自己的力量。」— Simone</p><p style="font-size:var(--fs-sm);color:var(--deep);line-height:2;font-style:italic;margin-bottom:.6rem">「解惑諮詢的威力，不僅僅是你帶來的這個問題而已，很多時候它會在各層面去協助我們破除長期以來我們的慣性。」— Kim</p><p style="font-size:var(--fs-sm);color:var(--deep);line-height:2;font-style:italic">「解惑培訓讓我明白，除了我所熟悉的自己外，還有一個我不太熟悉的自己，當我去整合內在所有面向，內在會有一股力量長出，讓我感覺更踏實。」— Lois</p></div><div style="background:var(--linen);padding:1rem;margin-bottom:1.2rem"><p style="font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.6rem">個案回饋</p><p style="font-size:var(--fs-sm);color:var(--deep);line-height:2;margin-bottom:.4rem">「雖然表面上只是問一個重點問題，讓能量聚焦，但透過層層抽卡，會發現到非常深處的自己。諮詢過程屢次讓我雞皮疙瘩，真的不得不說，很神奇且直指核心，讓我看到一直知道卻沒有去直視面對的問題。這次體驗讓我再次感受到宇宙的奧妙！並知道照顧好自己，照亮自己，就能成為別人的光。」</p><p style="font-size:var(--fs-xs);color:var(--warm);opacity:.7;text-align:right;margin-bottom:.8rem">— 鍾小姐</p><p style="font-size:var(--fs-sm);color:var(--deep);line-height:2;margin-bottom:.4rem">「做完之後覺得自己輕鬆許多，悶悶的感覺消失了。很喜歡這樣的諮詢方式，讓我看到自己一直忽略的地方，也找到了前進的方向。」</p><p style="font-size:var(--fs-xs);color:var(--warm);opacity:.7;text-align:right">— 李小姐</p></div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.8rem">立即預約 · 一對一諮詢 $3,000／次（約2小時）</p><p style="font-size:var(--fs-xs);color:var(--warm);line-height:1.8;margin-bottom:.8rem">地點：台北市基隆路一段141號6樓之2，近市政府捷運站<br>服務方式：僅限面對面進行<br>請留下方便的3個時間點，我們會與您確認。</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="c_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="c_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="c_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="c_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="c_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><button onclick="submitServiceForm('consulting')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-sm);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="c_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-xs);border-radius:2px;text-align:center"></div></div></div>`
+  },
+  reiki:{
+    img:'images/event-reiki.jpg',
+    badge:'聖火靈氣療癒・個案預約', title:'聖火靈氣療癒',
+    body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-sm);color:var(--warm);line-height:2.2;margin-bottom:1rem">聖火靈氣是新世紀開啟的能量系統，它擁有較高的振動頻率，是對現代人大加分的能量療癒工具，它能卸除焦慮緊張的情緒和身心煩腦，使人在身心靈層面都更加完整。<br><strong style="color:var(--deep)">靈(Rei)＝宇宙；氣(Ki)＝生命能量。</strong>靈氣意指宇宙生命的自然能量，透過雙手，重新將一個人帶回身心靈平衡。它是被西方國家認證允許進入醫療體系的輔助療法，協助病患促進身體的自癒能力，復原身體心理和精神疾病。</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem"><div style="background:var(--linen);padding:.8rem"><div style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.4rem">對身體的作用</div><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9"><li>改善體質、改善睡眠品質</li><li>舒緩痛症、加速恢復疲勞</li><li>去除肩膀酸痛、關節疼痛</li><li>改善過敏、皮膚質素</li><li>加速術後痊癒</li></ul></div><div style="background:var(--linen);padding:.8rem"><div style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.4rem">對心理的作用</div><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9"><li>消解不安及煩躁情緒</li><li>消解焦慮及壓力</li><li>處理情緒病／心理障礙</li><li>減輕心理造成的痛楚</li><li>清楚困擾因素，並獲得解決方法</li></ul></div></div><div style="background:var(--linen);padding:.8rem;margin-bottom:.8rem"><div style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.4rem">對開發創造力及能力相關的作用</div><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9"><li>提升直覺力與創意思考</li><li>強化專注力與學習能力</li><li>激發潛能，突破自我限制</li><li>提升靈感與創造性表達</li></ul></div><div style="background:var(--linen);padding:.8rem;margin-bottom:.8rem"><p style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.4rem">＊做靈氣療法一定要本人到場嗎?</p><p style="font-size:var(--fs-xs);color:var(--warm);line-height:1.8">不一定。靈氣是宇宙能量，不受時間與空間限制，可以進行遠距靈氣療癒。客戶只需在約定時間放鬆靜待即可接收到療癒能量。</p></div><div style="background:var(--linen);padding:.8rem;margin-bottom:.8rem"><p style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.4rem">＊接受靈氣後要注意什麼?</p><p style="font-size:var(--fs-xs);color:var(--warm);line-height:1.8">接受靈氣後建議多喝水，讓身體代謝更順暢。部分人可能感覺特別放鬆甚至想睡覺，這是正常反應，請充分休息。避免立即進行劇烈運動，讓能量自然整合。</p></div><div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.8"><strong style="color:var(--deep)">附註：</strong><br>1. 本服務不提供任何醫療診斷與醫療服務。如有任何疾病，請先尋求合格之中西醫師洽詢。<br>2. 請提前預約說明症狀及確認時間、地點。</div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.6rem">個案預約 · 聖火靈氣療癒 $2,500（90分鐘）</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="r_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="r_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="r_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="r_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="r_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/>
+<div style="margin-top:.6rem"><div style="font-size:var(--fs-xs);color:var(--warm);opacity:.75;margin-bottom:.5rem;letter-spacing:.08em">欲進行的形式？<span style="color:#a04040">*</span></div><div style="display:flex;flex-direction:row;gap:2rem;align-items:center"><label style="display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-sm);color:var(--deep);cursor:pointer"><input type="radio" name="r_form_type" id="r_form_face" value="面對面療癒" style="margin:0;width:15px;height:15px;flex-shrink:0"/> 面對面療癒</label><label style="display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-sm);color:var(--deep);cursor:pointer"><input type="radio" name="r_form_type" id="r_form_remote" value="遠距療癒" style="margin:0;width:15px;height:15px;flex-shrink:0"/> 遠距療癒</label></div></div></div><button onclick="submitServiceForm('reiki')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-sm);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="r_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-xs);border-radius:2px;text-align:center"></div></div></div>`
+  },
+  hypno:{
+    img:'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80',
+    badge:'催眠療癒・個案預約', title:'催眠療癒',
+    body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-sm);color:var(--warm);line-height:2.2;margin-bottom:1rem">身體常疲憊或僵硬，無法放鬆？常常睡不好？或是身體有某個狀態一直好不了，儘管看了好多醫生也沒有用？試試看催眠，或許你的身心想對你說什麼。體驗讓你感受到徹底放鬆的感覺，頭腦放鬆了，身心也就鬆了。</p><p style="font-size:var(--fs-sm);color:var(--warm);line-height:2.2;margin-bottom:1rem">我們潛意識的智慧和記載的資料庫，都比意識層面更多更廣。
+催眠是協助你進入更放鬆的狀態，與你的<strong style="color:var(--deep)">潛意識連結</strong>，讓你的內在給予你更清楚的指引。</p><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.5rem">催眠能協助你什麼？</p><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-sm);color:var(--warm);line-height:2"><li>協助放鬆，改善失眠/情緒/人際關係的困擾</li><li>主題焦點療癒：譬如減肥，戒菸，戒除特定不想要的習慣</li><li>身心狀況療癒：常有莫名疼痛，但找不出原因，或尋求物理治療未轉好者，可藉此改善</li><li>釋放情緒卡關、長期的限制性信念</li></ul></div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.4rem">期間限定優惠</p><p style="font-size:1.1rem;color:var(--deep);font-family:'Noto Serif TC',serif;margin-bottom:.3rem"><strong>$3,000 / 2hrs</strong> <span style="text-decoration:line-through;font-size:.85rem;color:var(--warm);opacity:.6">原價 $6,000 / 2hrs</span></p><p style="font-size:var(--fs-xs);color:var(--warm);line-height:1.7;margin-bottom:.8rem">* 優惠價限未參與過者使用，每人限用一次，不指定教練</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="h_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="h_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="h_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="h_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="h_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><button onclick="submitServiceForm('hypno')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-sm);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="h_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-xs);border-radius:2px;text-align:center"></div></div></div>`
+  },
+  srt:{
+    img:'https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?w=900&q=80',
+    badge:'SRT・靈性反應療法', title:'SRT 靈性反應療法',
+    body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-sm);color:var(--warm);line-height:2.2;margin-bottom:1rem">靈性反應療法（Spiritual Response Therapy），是一個充滿力量、快速與準確的療法。藉由 SRT 找出困惑已久的問題根源（工作、愛情、家庭、人際、財務等），將造成問題的<strong style="color:var(--deep)">負面設定或靈魂記錄移除</strong>，創造更美好豐盛的新人生。</p><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.5rem">SRT 可以幫助你</p><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-sm);color:var(--warm);line-height:2"><li>打破舊習慣：慾望、上癮、孩童期恐懼感</li><li>釋放舊模式：行不通的關係、再三犯同樣錯誤、情感挫敗</li><li>征服自己：克服畏懼感、憂鬱症、強迫觀念、放下過去</li><li>增加你的氣場：將負面想法改變為正面</li><li>達到你的最高峰：完成夢想、找出清晰目標、加強信心</li><li>增進健康：有效面對健康的挑戰和身體不適</li><li>清除負面氣場：工作、家居、重要會議前後</li></ul></div><div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">了解更多</strong>：靈性反應療法（SRT）是由 Rev. Robert E. Detzler 所創建的靈性療癒系統，透過靈擺和靈性圖表，與高我溝通，清除阻礙靈魂進化的負面設定程式與能量。它能快速、準確地找出問題根源，無論是今生的創傷或跨越時間的靈魂記憶，都可進行清理與釋放，協助個案創造更輕盈、更豐盛的生命。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">為什麼需要做 SRT？</strong>很多我們想不通的卡點，其實藏在潛意識或前世。SRT 就像心靈的除塵器，幫你把那些看不見的負面阻礙一併清乾淨。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">我能幫身邊的家人做嗎？</strong>療癒必須經過對方「高我」的同意。每個人都有自己的靈魂功課，就算是再親的人，我們也無法強行介入對方的生命轉變。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">療癒後注意事項</strong>：接受SRT療癒後身體會有3–7天反應期，可能特別沒精神、容易累、嗜睡，請多喝水、多休息。</div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.8rem">立即預約 · 一對一SRT $4,800（約90–120分鐘）</p><p style="font-size:var(--fs-xs);color:var(--warm);line-height:1.8;margin-bottom:.8rem">地點：台北市基隆路一段141號6樓之2，近市政府捷運站<br>請留下方便的3個時間點，我們會與您確認。</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="s_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="s_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="s_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="s_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="s_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-sm);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><button onclick="submitServiceForm('srt')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-sm);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="s_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-xs);border-radius:2px;text-align:center"></div></div></div>`
+  }
+};
+
+// ─── SERVICE MODAL ────────────────────────────────────────────
+function openServiceModal(key){
+  const s=SERVICES[key]; if(!s) return;
+  document.getElementById('serviceModalContent').innerHTML=`
+    <img style="width:100%;height:220px;object-fit:cover" src="${s.img}" alt="${s.title}" loading="lazy" onerror="this.style.display='none'"/>
+    <div style="padding:1.8rem 2.8rem 0;background:var(--linen);border-bottom:1px solid rgba(180,160,130,.2)">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:var(--fs-sm);color:var(--warm);letter-spacing:.2em;margin-bottom:.4rem">${s.badge}</p>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:var(--fs-2xl);font-weight:300;color:var(--deep);letter-spacing:.04em;line-height:1.3;padding-bottom:1.5rem">${s.title}</h2>
+    </div>
+    ${s.body}`;
+  document.getElementById('serviceModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeServiceModal(){
+  document.getElementById('serviceModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('serviceModal').addEventListener('click',e=>{if(e.target===document.getElementById('serviceModal'))closeServiceModal();});
+
+// ══════════════════════════════════════════════════════════════════
+//  GOOGLE SHEETS API 串接設定
+// ══════════════════════════════════════════════════════════════════
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzrxJq0NTeoiNvQpyxZ6KDCOovCW8FM_b3BYMvaOM0mGHp7a_GmNkhQ8R6X3X-KuwEMkQ/exec';
+
+/**
+ * 統一送出函式：將資料 POST 到 Google Apps Script
+ * @param {Object} data  - 報名欄位 key-value
+ * @param {string} msgId - 顯示結果的 DOM id
+ * @param {Function} [onSuccess] - 成功後 callback
+ */
+async function sendToSheet(data, msgId, onSuccess){
+  const msgEl = document.getElementById(msgId);
+  if(msgEl){
+    msgEl.style.cssText='display:block;background:rgba(180,160,130,.12);color:var(--warm);border:1px solid rgba(180,160,130,.3);padding:.8rem;border-radius:2px;text-align:center';
+    msgEl.textContent='⏳ 傳送中，請稍候…';
+  }
+  try{
+    const res = await fetch(GAS_URL, {
+      method:'POST',
+      mode:'no-cors',   // GAS 需 no-cors
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    // no-cors 無法讀取 response body，視為成功
+    if(msgEl){
+      msgEl.style.cssText='display:block;background:rgba(122,143,114,.15);color:var(--moss);border:1px solid rgba(122,143,114,.3);padding:.8rem;border-radius:2px;text-align:center';
+      msgEl.innerHTML='✅ 報名成功！確認信將寄送至您的 Email，請查收。';
+    }
+    if(onSuccess) onSuccess();
+  }catch(err){
+    console.error('GAS error:',err);
+    if(msgEl){
+      msgEl.style.cssText='display:block;background:rgba(180,80,80,.08);color:#a04040;border:1px solid rgba(180,80,80,.2);padding:.8rem;border-radius:2px;text-align:center';
+      msgEl.textContent='⚠️ 網路發送失敗，請直接來信 hoholife2026@gmail.com 或電話聯繫，抱歉造成不便。';
+    }
+  }
+}
+
+// ── 必填驗證 helper ──
+function showErr(msgId, text){
+  const el=document.getElementById(msgId);
+  if(el){
+    el.style.cssText='display:block;background:rgba(180,80,80,.08);color:#a04040;border:1px solid rgba(180,80,80,.2);padding:.8rem;border-radius:2px';
+    el.textContent=text;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  1. 合一覺醒課程報名
+// ══════════════════════════════════════════════════════════════════
+function openOnenessReg(title, season){
+  document.getElementById('onenessRegTitle').textContent=title;
+  document.getElementById('onenessRegBadge').textContent='合一覺醒課程 · '+season+' 報名';
+  document.getElementById('onenessMsg').style.display='none';
+  document.getElementById('onenessForm').reset();
+  document.getElementById('onenessRegModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function submitOnenessReg(e){
+  e.preventDefault();
+  const f=e.target;
+  const name_zh    = f.name_zh.value.trim();
+  const name_en    = f.name_en.value.trim();
+  const phone      = f.phone.value.trim();
+  const email      = f.email.value.trim();
+  const source     = f.source.value.trim();
+  const transfer   = f.transfer_code.value.trim();
+  const gEl        = f.querySelector('input[name="gender"]:checked');
+  const sEl        = f.querySelector('input[name="oneness_season"]:checked');
+  const diet       = f.diet.value;
+  const together   = f.querySelector('input[name="together"]:checked')?.value||'否';
+  const companion  = f.companion.value.trim();
+  const note       = f.note.value.trim();
+
+  if(!name_zh||!name_en||!phone||!email||!source||!transfer||!sEl||!gEl){
+    showErr('onenessMsg','請填寫所有必填欄位（標示 * 者）'); return;
+  }
+  const courseName = '合一覺醒課程 '+sEl.value;
+  sendToSheet({
+    活動名稱: courseName,
+    中文姓名: name_zh,
+    英文姓名: name_en,
+    手機: phone,
+    Email: email,
+    性別: gEl?gEl.value:'未填',
+    介紹人: '—',
+    課程班別: sEl.value,
+    匯款後五碼: transfer,
+    飲食習慣: diet,
+    得知管道: source,
+    方便時間點: '—',
+    是否偕同親友: together,
+    親友資料: companion||'—',
+    欲進行形式: '—',
+    備註: note||'—'
+  }, 'onenessMsg', ()=>{ document.getElementById('onenessForm').reset(); });
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  2. 解惑諮詢教練培訓報名
+// ══════════════════════════════════════════════════════════════════
+function openJiehuReg(){
+  document.getElementById('jiehuMsg').style.display='none';
+  document.getElementById('jiehuForm').reset();
+  document.getElementById('jiehuRegModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function submitJiehuReg(e){
+  e.preventDefault();
+  const f=e.target;
+  const name      = f.name.value.trim();
+  const phone     = f.phone.value.trim();
+  const email     = f.email.value.trim();
+  const referrer  = f.referrer.value.trim();
+  const transfer  = f.transfer_code.value.trim();
+  const gEl       = f.querySelector('input[name="gender"]:checked');
+  const cEl       = f.querySelector('input[name="course_class"]:checked');
+
+  if(!name||!phone||!email||!referrer||!gEl||!cEl||!transfer){
+    showErr('jiehuMsg','請填寫所有必填欄位'); return;
+  }
+  sendToSheet({
+    活動名稱: '解惑諮詢教練培訓',
+    中文姓名: name,
+    英文姓名: '—',
+    手機: phone,
+    Email: email,
+    性別: gEl.value,
+    介紹人: referrer,
+    課程班別: cEl.value,
+    匯款後五碼: transfer,
+    飲食習慣: '—',
+    得知管道: '—',
+    方便時間點: '—',
+    是否偕同親友: '—',
+    親友資料: '—',
+    欲進行形式: '—',
+    備註: '—'
+  }, 'jiehuMsg', ()=>{ document.getElementById('jiehuForm').reset(); });
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  3. 聖火靈氣執行師培訓報名
+// ══════════════════════════════════════════════════════════════════
+function openReikiTrainingReg(){
+  document.getElementById('reikiTrainingMsg').style.display='none';
+  document.getElementById('reikiTrainingForm').reset();
+  document.getElementById('reikiTrainingRegModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function submitReikiTrainingReg(e){
+  e.preventDefault();
+  const f=e.target;
+  const name_zh   = f.name_zh.value.trim();
+  const name_en   = f.name_en.value.trim();
+  const phone     = f.phone.value.trim();
+  const email     = f.email.value.trim();
+  const transfer  = f.transfer_code.value.trim();
+  const seasonEl  = f.querySelector('input[name="reiki_season"]:checked');
+  const gEl       = f.querySelector('input[name="gender"]:checked');
+  const note      = f.note.value.trim();
+  const referrer  = f.referrer ? f.referrer.value.trim() : '';
+
+  if(!name_zh||!name_en||!phone||!email||!transfer||!seasonEl||!gEl){
+    showErr('reikiTrainingMsg','請填寫所有必填欄位（標示 * 者）'); return;
+  }
+  const courseName = '聖火靈氣執行師培訓 '+seasonEl.value;
+  sendToSheet({
+    活動名稱: courseName,
+    中文姓名: name_zh,
+    英文姓名: name_en,
+    手機: phone,
+    Email: email,
+    性別: gEl.value,
+    介紹人: referrer||'—',
+    課程班別: seasonEl.value,
+    匯款後五碼: transfer,
+    飲食習慣: '—',
+    得知管道: '—',
+    方便時間點: '—',
+    是否偕同親友: '—',
+    親友資料: '—',
+    欲進行形式: '—',
+    備註: note||'—'
+  }, 'reikiTrainingMsg', ()=>{ document.getElementById('reikiTrainingForm').reset(); });
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  4. 光的課程 報名（通用活動 modal）
+// ══════════════════════════════════════════════════════════════════
+// ─── EVENT DATA ───────────────────────────────────────────────
+const EVENTS = {
+  e1:{
+    img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80',
+    glyph:'✧', badge:'系列課程 · 全年', title:'光的課程 2026', subtitle:'每週二 19:00–21:30',
+    info:{'時間':'每週二 19:00–21:30','地點':'基隆路一段141號6F-2','費用':'$800/堂 · $4,000/5堂','課本費':'另購 $680'},
+    body:`<p>每一個想認識自己，清理自己，找到生活錨定和方向者的入門課程，透過每週一次的習修，定期保養呵護並清理自己的能量。</p>
+<p><strong style="color:var(--deep)">2026 完整課程表</strong></p>
+<table class="light-table">
+<tr><th>期間</th><th>主題</th><th>效果</th></tr>
+<tr><td>3/3–3/31</td><td><span class="light-dot" style="background:#fff;border:1px solid #ccc"></span>白色之光</td><td>淨化身心靈系統</td></tr>
+<tr><td>4/7–5/5</td><td><span class="light-dot" style="background:#f5c842"></span>金色之光</td><td>提升轉化思想與意識</td></tr>
+<tr><td>5/12–6/9</td><td><span class="light-dot" style="background:#4a90d9"></span>藍色之光</td><td>拔除恐懼與焦慮</td></tr>
+<tr><td>6/16–7/14</td><td><span class="light-dot" style="background:#50c878"></span>綠寶石之光</td><td>增強溝通，啟發創造力</td></tr>
+<tr><td>7/21–8/18</td><td><span class="light-dot" style="background:#9b59b6"></span>紫色之光</td><td>提升較高自我的意志</td></tr>
+<tr><td>8/25–9/22</td><td><span class="light-dot" style="background:#e74c3c"></span>紅寶石之光</td><td>釋放關係中的傷痛</td></tr>
+<tr><td>9/29–10/27</td><td><span class="light-dot" style="background:#e67e22"></span>橘色之光</td><td>增強活力，擴展直覺力</td></tr>
+<tr><td>11/3–12/1</td><td><span class="light-dot" style="background:#ff9eb5"></span>粉紅色之光</td><td>創造生活平衡與和諧</td></tr>
+<tr><td>12/8–2027/1/5</td><td><span class="light-dot" style="background:#9e7bb5"></span>紫水晶之光</td><td>面對內在矛盾，走出疑惑</td></tr>
+</table>
+<p style="margin-top:1rem">歡迎插班，任何階段皆可開始。</p>`,
+    courses:['光的課程 2026（單堂 $800）','光的課程 2026（5堂套票 $4,000）']
+  },
+  eA:{
+    img:'images/oneness.jpg',
+    glyph:'◇', badge:'2026 夏季 & 冬季班', title:'合一覺醒課程 2026', subtitle:'夏季班 7/24–26 ｜ 冬季班 12/25–27',
+    info:{'🌿 夏季班':'7/24（五）– 7/26（日）','❄️ 冬季班':'12/25（五） – 12/27（日）','地點':'台北信義區','費用':'$28,000（早鳥 $25,000）'},
+    body:`<div>
+<h3 style="font-family:'Noto Serif TC',serif;font-size:var(--fs-md);color:var(--deep);margin-bottom:.8rem">課程簡介</h3>
+<p style="font-style:italic;margin-bottom:1rem">「如果愛不能喚醒你，那麼生命便會用痛苦喚醒你。直到你願意醒來，為自己做出改變。」</p>
+<p style="margin-bottom:1.2rem">合一覺醒是一門深度轉化的課程，透過呼吸、覺察、靜心、肢體活動與神聖覺醒祝福（Deeksha），幫助你釋放內在長期累積的情緒負荷，重新設定生命程式，開展全新的生命。精緻小班制，每班嚴格控制人數，確保每位學員都能獲得深度的個人轉化體驗。</p>
+
+<h3 style="font-family:'Noto Serif TC',serif;font-size:var(--fs-md);color:var(--deep);margin-bottom:.8rem">課程內容</h3>
+<ul style="list-style:disc;padding-left:1.2rem;margin-bottom:1.2rem">
+<li style="margin-bottom:.4rem">透過呼吸、覺察、靜心、肢體活動、Deeksha，讓過程成為你真實的體驗</li>
+<li style="margin-bottom:.4rem">認識宇宙運作法則，學習成長／成功方程式，創造豐富生命實相</li>
+<li style="margin-bottom:.4rem">釋放內在長期累積的情緒負荷，解除一再重複的模式</li>
+<li style="margin-bottom:.4rem">和諧父母、配偶及子女關係</li>
+<li style="margin-bottom:.4rem">神聖覺醒祝福（Mukthi Deeksha）— 重新設定生命程式</li>
+<li style="margin-bottom:.4rem">Deeksha 傳導師授證 — 成為神聖恩典的傳遞管道</li>
+</ul>
+
+<div style="background:var(--linen);padding:1rem;margin-bottom:1.2rem;font-size:var(--fs-sm);color:var(--warm);line-height:2">
+<strong style="color:var(--deep)">🌿 2026 夏季班</strong><br>
+2026年7月24日（星期五）7 pm ~ 10 pm<br>
+2026年7月25日（星期六）8:30 am ~ 6 pm<br>
+2026年7月26日（星期日）8:30 am ~ 6 pm<br>
+<span style="font-size:var(--fs-xs);opacity:.7">（課程結束時間視實際狀況而定，建議不要預排課後行程。）</span><br>
+費用：<strong style="color:var(--deep)">$28,000</strong>（早鳥 $25,000，截止 2026/7/10）<br><br>
+<strong style="color:var(--deep)">❄️ 2026 冬季班</strong><br>
+2026年12月25日（星期五）7 pm ~ 10 pm<br>
+2026年12月26日（星期六）8:30 am ~ 6 pm<br>
+2026年12月27日（星期日）8:30 am ~ 6 pm<br>
+<span style="font-size:var(--fs-xs);opacity:.7">（課程結束時間視實際狀況而定，建議不要預排課後行程。）</span><br>
+費用：<strong style="color:var(--deep)">$28,000</strong>（早鳥 $25,000，截止 2026/12/10）<br>
+<strong style="color:var(--deep)">💳 匯款</strong>：帳戶姓名 陳懿｜803聯邦銀行永春分行｜079-50-0033741
+</div>
+
+<h3 style="font-family:'Noto Serif TC',serif;font-size:var(--fs-md);color:var(--deep);margin-bottom:.8rem">學員反饋</h3>
+<div style="background:var(--linen);padding:1rem;margin-bottom:.8rem">
+<p style="font-size:var(--fs-sm);color:var(--warm);line-height:2;font-style:italic;margin-bottom:.5rem">「這讓我體驗到之前都沒體驗過的轉化，許多長期累積的情緒在課程中自然釋放，課後感覺整個人輕盈了很多。」</p>
+<p style="font-size:var(--fs-xs);color:var(--warm);opacity:.65;text-align:right">— 夏季班學員</p>
+</div>
+<div style="background:var(--linen);padding:1rem;margin-bottom:1rem">
+<p style="font-size:var(--fs-sm);color:var(--warm);line-height:2;font-style:italic;margin-bottom:.5rem">「課程改變了我和父母的關係，那些多年解不開的心結，在這三天裡悄悄鬆動了。謝謝老師用愛帶領這個過程。」</p>
+<p style="font-size:var(--fs-xs);color:var(--warm);opacity:.65;text-align:right">— 冬季班學員</p>
+</div>
+</div>`,
+    isOneness: true, onenessSeason: '（請選擇班次）', onenessTitle: '合一覺醒課程 2026'
+  },
+  e3:{
+    img:'images/service-consulting.jpg',
+    glyph:'✦', badge:'2026 招生中', title:'解惑諮詢教練培訓', subtitle:'國際證照班 · 6月 & 10月',
+    info:{'6月班':'6/6、7、13、14、27、28、7/4、5','10月班':'10/3、4、17、18、24、25、31、11/1','地點':'台北 市政府站附近','早鳥':'開課前1個月享優惠'},
+    isJiehu: true,
+    body:`<p>提高生命視角，找到關鍵破口，看見可能性。解惑諮詢獲美國 IAPC 與英國 CAMBMS 國際雙證照認可。</p>
+<p><strong style="color:var(--deep)">培訓後你可以</strong></p>
+<ul><li>提高自己的生命視角，找到自己與他人的關鍵突破口</li><li>陪伴他人看見新的路徑與可能性</li><li>取得 IAPC & CAMBMS 雙國際認證，正式成為解惑教練</li></ul>
+<div style="margin-top:1rem;padding:1rem;background:var(--linen);font-size:var(--fs-sm);color:var(--warm);line-height:2">
+<strong style="color:var(--deep)">6月班</strong>：原價 $68,000｜05/15前早鳥 $45,000<br>上課日：06/06、07、13、14、27、28、07/04、05（共8堂）<br>
+<strong style="color:var(--deep)">10月班</strong>：原價 $68,000｜09/15前早鳥 $45,000<br>上課日：10/03、04、17、18、24、25、31、11/01（共8堂）<br>
+上課時間：10:00–17:00 | 地點：近台北市政府捷運站<br>
+<strong style="color:var(--deep)">💳 匯款</strong>：帳戶姓名 陳懿｜803聯邦銀行永春分行｜079-50-0033741
+</div>`
+  },
+  e5:{
+    img:'images/event-reiki.jpg',
+    glyph:'○', badge:'2026 夏季 & 冬季班', title:'聖火靈氣執行師培訓', subtitle:'一階 & 二階 · 2026',
+    info:{'🌿 夏季一階':'7/11（六）& 8/9（六）','🌿 夏季二階':'8/15（六）& 8/16（日）','❄️ 冬季一階':'11/14（六）& 12/12（六）','❄️ 冬季二階':'12/19（六）& 12/20（日）'},
+    isReikiTraining: true,
+    body:`<p style="margin-bottom:1rem">聖火靈氣（Holy Fire Reiki）是新世紀開啟的高振動能量系統，源自於傳統靈氣，但頻率更高、療癒力更深。<strong style="color:var(--deep)">靈(Rei)＝宇宙；氣(Ki)＝生命能量。</strong>靈氣意指宇宙生命的自然能量，已被西方國家認證允許進入醫療體系，多家醫院應用於臨床，協助病患促進自癒能力、復原身心靈疾病。</p>
+
+<h3 style="font-family:'Noto Serif TC',serif;font-size:var(--fs-sm);color:var(--deep);margin-bottom:.7rem">成為靈氣執行師，你將學到</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem">
+<div style="background:var(--linen);padding:.8rem">
+<div style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.4rem">一階課程重點</div>
+<ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9">
+<li>靈氣的歷史與起源</li>
+<li>靈氣自我療癒技術</li>
+<li>全身掃描與手位導引</li>
+<li>傳遞靈氣療癒給他人</li>
+<li>靈氣開蒙（靈氣點化）</li>
+</ul></div>
+<div style="background:var(--linen);padding:.8rem">
+<div style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.4rem">二階課程重點</div>
+<ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-xs);color:var(--warm);line-height:1.9">
+<li>聖火靈氣符文應用</li>
+<li>遠距靈氣療癒技術</li>
+<li>情緒與心理層面療癒</li>
+<li>深化療癒能量的傳遞</li>
+<li>高我連結與直覺開發</li>
+</ul></div></div>
+
+<div style="background:var(--linen);padding:1rem;margin-bottom:1rem;font-size:var(--fs-sm);color:var(--warm);line-height:2">
+<strong style="color:var(--deep)">📅 上課時間</strong>：每堂 上午10:00 ~ 下午5:30（地點：台北信義區）<br>
+<strong style="color:var(--deep)">退費機制</strong>：開課前14天以上取消退費100%；7–13天退70%；1–6天退50%；開課當天或之後不予退費<br>
+<strong style="color:var(--deep)">💳 匯款</strong>：帳戶姓名 陳懿｜803聯邦銀行永春分行｜079-50-0033741
+</div>
+
+<div style="background:var(--linen);padding:.8rem;margin-bottom:.6rem">
+<p style="font-size:var(--fs-xs);font-weight:500;color:var(--deep);margin-bottom:.4rem">學員心得</p>
+<p style="font-size:var(--fs-xs);color:var(--warm);line-height:1.8;font-style:italic">「上完一階課後開始每天自我療癒，睡眠品質明顯改善，連長年的肩膀僵硬也慢慢好轉。靈氣真的改變了我的生活節奏。」</p>
+<p style="font-size:var(--fs-xs);color:var(--warm);opacity:.65;text-align:right;margin-top:.3rem">— 2025年夏季班學員</p>
+</div>`
+  }
+};
+
+
+let _currentEventId=null;
+function openRegModal(title,eventId){
+  _currentEventId=eventId||null;
+  document.getElementById('regModalTitle').textContent=title;
+  const sel=document.getElementById('regCourseSelect');
+  sel.innerHTML='<option value="">— 請選擇 —</option>';
+  let courses=[];
+  if(eventId&&EVENTS[eventId]&&EVENTS[eventId].courses) courses=EVENTS[eventId].courses;
+  else Object.values(EVENTS).forEach(ev=>{if(ev.courses)courses.push(...ev.courses);});
+  courses.forEach(c=>{const o=document.createElement('option');o.value=c;o.innerHTML=c;sel.appendChild(o);});
+  document.getElementById('regMsg').style.display='none';
+  document.getElementById('regMsg').className='';
+  document.getElementById('regForm').reset();
+  document.getElementById('regModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeRegModal(){
+  document.getElementById('regModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('regModal').addEventListener('click',e=>{if(e.target===document.getElementById('regModal'))closeRegModal();});
+
+function submitReg(e){
+  e.preventDefault();
+  const form=e.target;
+  const name      = form.name.value.trim();
+  const email     = form.email.value.trim();
+  const genderEl  = form.querySelector('input[name="gender"]:checked');
+  const course    = form.course.value;
+  const phone     = form.phone.value.trim();
+  const referrer  = form.referrer.value.trim();
+  const note      = form.note.value.trim();
+
+  if(!name||!phone||!email||!genderEl||!course){
+    showErr('regMsg','請填寫所有必填欄位（標示 * 者）。'); return;
+  }
+  sendToSheet({
+    活動名稱: '光的課程 2026',
+    中文姓名: name,
+    英文姓名: '—',
+    手機: phone||'—',
+    Email: email,
+    性別: genderEl.value,
+    介紹人: referrer||'—',
+    課程班別: course,
+    匯款後五碼: '—',
+    飲食習慣: '—',
+    得知管道: '—',
+    方便時間點: '—',
+    是否偕同親友: '—',
+    親友資料: '—',
+    欲進行形式: '—',
+    備註: note||'—'
+  }, 'regMsg', ()=>{ document.getElementById('regForm').reset(); });
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  5–8. 四項服務預約（解惑諮詢 / 聖火靈氣 / 催眠 / SRT）
+// ══════════════════════════════════════════════════════════════════
+async function submitServiceForm(type){
+  const map={
+    consulting:{name:'c_name',phone:'c_phone',email:'c_email',times:'c_times',source:'c_source',msg:'c_msg',label:'解惑諮詢預約',form:'欲進行形式：一對一面談'},
+    reiki:     {name:'r_name',phone:'r_phone',email:'r_email',times:'r_times',source:'r_source',formEl:'r_form_type',msg:'r_msg',label:'聖火靈氣療癒預約'},
+    hypno:     {name:'h_name',phone:'h_phone',email:'h_email',times:'h_times',source:'h_source',msg:'h_msg',label:'催眠療癒預約',form:'欲進行形式：催眠療癒'},
+    srt:       {name:'s_name',phone:'s_phone',email:'s_email',times:'s_times',source:'s_source',msg:'s_msg',label:'SRT靈性反應療法預約',form:'欲進行形式：SRT靈性反應療法'}
+  };
+  const m=map[type]; if(!m) return;
+  const name  = document.getElementById(m.name)?.value.trim()||'';
+  const phone = document.getElementById(m.phone)?.value.trim()||'';
+  const email = document.getElementById(m.email)?.value.trim()||'';
+  const times = document.getElementById(m.times)?.value.trim()||'';
+  const source= document.getElementById(m.source)?.value.trim()||'';
+  // 欲進行形式（僅聖火靈氣有此欄位）
+  const formTypeEl = m.formEl ? document.querySelector(`input[name="${m.formEl}"]:checked`) : null;
+  const formType   = formTypeEl ? formTypeEl.value : null;
+  if(!name||!phone||!email||!times||!source){
+    showErr(m.msg,'請填寫所有必填欄位（標示 * 者）。'); return;
+  }
+  if(m.formEl && !formType){
+    showErr(m.msg,'請選擇欲進行的形式（標示 * 者）。'); return;
+  }
+  await sendToSheet({
+    活動名稱: m.label,
+    中文姓名: name,
+    英文姓名: '—',
+    手機: phone,
+    Email: email,
+    性別: '—',
+    介紹人: '—',
+    課程班別: '—',
+    匯款後五碼: '—',
+    飲食習慣: '—',
+    得知管道: source||'—',
+    方便時間點: times,
+    是否偕同親友: '—',
+    親友資料: '—',
+    欲進行形式: formType||'—',
+    備註: '—'
+  }, m.msg, ()=>{
+    ['name','phone','email','times','source'].forEach(k=>{
+      const el=document.getElementById(m[k]); if(el) el.value='';
+    });
+    if(m.formEl){
+      document.querySelectorAll(`input[name="${m.formEl}"]`).forEach(r=>r.checked=false);
+    }
+  });
+}
+
+// ── BOOKING MODAL ──────────────────────────────────────────────
+const bookingModal=document.getElementById('bookingModal');
+function openBooking(e){if(e)e.preventDefault();bookingModal.classList.add('open');document.body.style.overflow='hidden';}
+function closeBooking(){bookingModal.classList.remove('open');document.body.style.overflow='';}
+bookingModal.addEventListener('click',e=>{if(e.target===bookingModal)closeBooking();});
+
+// ── EVENT MODAL ────────────────────────────────────────────────
+function openEvent(id){
+  const e=EVENTS[id]; if(!e) return;
+  const infoRows=Object.entries(e.info).map(([k,v])=>`<div class="modal-info-item"><label>${k}</label><span>${v}</span></div>`).join('');
+  let regBtn='';
+  if(e.isOneness){
+    regBtn=`<button class="btn-reg-primary" onclick="closeEventModal();openOnenessReg('${e.onenessTitle}','${e.onenessSeason}')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 11l3 3L22 4"/></svg> 線上報名
+    </button>`;
+  } else if(e.isJiehu){
+    regBtn=`<button class="btn-reg-primary" onclick="closeEventModal();openJiehuReg()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 11l3 3L22 4"/></svg> 線上報名
+    </button>`;
+  } else if(e.isReikiTraining){
+    regBtn=`<button class="btn-reg-primary" onclick="closeEventModal();openReikiTrainingReg()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 11l3 3L22 4"/></svg> 線上報名
+    </button>`;
+  } else if(e.courses){
+    regBtn=`<button class="btn-reg-primary" onclick="closeEventModal();openRegModal('${e.title}','${id}')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 11l3 3L22 4"/></svg> 線上報名
+    </button>`;
+  } else {
+    regBtn=`<button class="btn-reg-primary" onclick="closeEventModal();openBooking(event)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 11.54a19.79 19.79 0 01-3.07-8.67A2 2 0 012.61 1h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-.96.96a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+      電話諮詢
+    </button>`;
+  }
+  document.getElementById('eventModalContent').innerHTML=`
+    <img class="modal-hero-img" src="${e.img}" alt="${e.title}" loading="lazy" onerror="this.outerHTML='<div class=\\'modal-hero-fallback\\'><span>${e.glyph}</span></div>'"/>
+    <div class="modal-content">
+      <p class="modal-eyebrow">${e.badge}</p>
+      <h2 class="modal-title serif">${e.title}<br><small style="font-size:.55em;opacity:.65">${e.subtitle}</small></h2>
+      <div class="modal-info-grid">${infoRows}</div>
+      <div class="modal-body-text">${e.body}</div>
+      <div class="modal-register-box">
+        <p>想報名或了解更多？填寫報名表或直接聯繫我們。</p>
+        <div class="modal-register-actions">
+          ${regBtn}
+          <a href="tel:0938134511" class="btn-reg-ghost">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 11.54a19.79 19.79 0 01-3.07-8.67A2 2 0 012.61 1h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-.96.96a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+            電話諮詢
+          </a>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('eventModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeEventModal(){
+  document.getElementById('eventModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('eventModal').addEventListener('click',e=>{if(e.target===document.getElementById('eventModal'))closeEventModal();});
+
+// ── ESC ───────────────────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeEventModal();closeRegModal();closeBooking();closeServiceModal();
+    document.getElementById('onenessRegModal').classList.remove('open');
+    document.getElementById('jiehuRegModal').classList.remove('open');
+    document.getElementById('reikiTrainingRegModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
+
+// ── NAV + READING BAR ─────────────────────────────────────────
+const nav=document.getElementById('nav');
+const bar=document.getElementById('readingBar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+  const d=document.documentElement;
+  bar.style.width=(window.scrollY/(d.scrollHeight-d.clientHeight)*100)+'%';
+},{passive:true});
+
+// ── HAMBURGER ─────────────────────────────────────────────────
+const hamburger=document.getElementById('hamburger');
+const mobileNav=document.getElementById('mobileNav');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow=mobileNav.classList.contains('open')?'hidden':'';
+});
+function closeMobile(){
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ── REVEAL ────────────────────────────────────────────────────
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');observer.unobserve(el.target);}});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// ── FAQ ───────────────────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+
+// ── HERO PARALLAX ─────────────────────────────────────────────
+const rings=document.querySelectorAll('.hero-ring');
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  rings.forEach((r,i)=>{r.style.transform=`translateY(${y*(0.08+i*0.04)}px)`;});
+},{passive:true});
+</script>
+
+<!-- TEAM MEMBER MODAL -->
+<div id="teamModal" role="dialog" aria-modal="true">
+  <div class="modal-backdrop" onclick="closeTeamModal()"></div>
+  <div class="modal">
+    <button class="tm-close" onclick="closeTeamModal()" aria-label="關閉">✕</button>
+    <div class="tm-header">
+      <div class="tm-photo"><img id="tmPhoto" src="" alt=""/></div>
+      <div class="tm-title">
+        <h3 id="tmName"></h3>
+        <p id="tmRole"></p>
+      </div>
+    </div>
+    <div class="tm-body">
+      <ul class="tm-creds" id="tmCreds"></ul>
+    </div>
+  </div>
+</div>
+
+
+<script>
+const TEAM_DATA = {
+  Sylvie: {
+    photo: 'images/sylvie.jpg',
+    name: 'Sylvie Su',
+    role: '好和工作坊 團隊帶領人',
+    creds: [
+      '臼井 / 聖火靈氣 IARP 國際靈氣導師',
+      '美國 IAPC / 英國 CAMBMS 催眠講師',
+      'NLP 高階執行師',
+      '英國 TQUK 國際健康照護執行師',
+      '印度合一大學授證訓練師',
+      '美國 NAHA 國際芳療保健師',
+      'SRT / 超越極限 能量療法高階執行師',
+      '光的課程帶領人',
+      '英國 IPHM 國際自然療法執行師'
+    ]
+  },
+  Simone: {
+    photo: 'images/simone.jpg',
+    name: 'Simone',
+    role: '解惑教練',
+    creds: ['IAPC 國際認證解惑教練', 'CAMBMS 英國認證']
+  },
+  Lois: {
+    photo: 'images/lois.jpg',
+    name: 'Lois',
+    role: '解惑教練｜催眠執行師｜聖火靈氣執行師',
+    bio: [
+      'IAPC・CAMBMS 國際認證解惑教練',
+      '多年深耕外商科技與行銷產業，在高壓與快速變動的職場環境中，不斷探索人與人之間的關係、自我價值，以及生命中反覆出現的課題。',
+      '最初踏入身心靈領域，源自於想理解並突破自身與家庭中長期存在的循環模式。這段探索歷程，帶領我深入學習催眠、能量療癒與自我覺察，也逐漸發現：許多困擾人生的問題，往往不只是表面的事件，而是來自更深層的信念、情緒與內在能量狀態。',
+      '透過多年實踐與親身體驗，我見證了能量如何深入我的生活並轉化自己與他人。從身體反覆出現的免疫系統問題逐漸改善，到學習傾聽身體訊息、連結內在智慧，讓我更加相信：身體、情緒與靈魂始終是一體的。',
+      '相信每個人心中都有屬於自己的答案。如果你正面臨人生選擇、關係或身心議題，歡迎與我聊聊。讓我陪伴你梳理內在訊息，重新連結自己的力量與方向。'
+    ],
+    services: ['解惑諮詢（個案預約）', '聖火靈氣療癒（個案預約）'],
+    contact: 'hoholife2026@gmail.com',
+    creds: ['IAPC · CAMBMS 國際認證解惑教練', '催眠執行師', '聖火靈氣執行師']
+  },
+  Kim: {
+    photo: 'images/kim.jpg',
+    name: 'Kim',
+    role: '解惑教練 · 催眠執行師 · 聖火靈氣執行師',
+    creds: ['IAPC · CAMBMS 國際認證解惑教練', '催眠執行師', '聖火靈氣執行師']
+  }
+};
+
+function openTeamModal(name) {
+  const d = TEAM_DATA[name];
+  if (!d) return;
+  document.getElementById('tmPhoto').src = d.photo;
+  document.getElementById('tmPhoto').alt = d.name;
+  document.getElementById('tmName').textContent = d.name;
+  document.getElementById('tmRole').textContent = d.role;
+  const ul = document.getElementById('tmCreds');
+  let html = '';
+  if (d.bio) {
+    // First item: credential — bold, no bullet
+    html = `<li class="bio-item" style="font-weight:700;color:var(--clay);margin-bottom:.8rem;font-size:var(--fs-sm)">${d.bio[0]}</li>`;
+    // Remaining items: prose paragraphs — no bullets, article style
+    html += d.bio.slice(1).map(p =>
+      `<li class="bio-item" style="margin-bottom:.85rem"><p style="font-size:var(--fs-sm);color:var(--deep);line-height:1.9;margin:0">${p}</p></li>`
+    ).join('');
+    if (d.services) {
+      html += `<li style="list-style:none;margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(180,160,130,.25)"><span style="font-size:var(--fs-xs);color:var(--warm);letter-spacing:.1em;display:block;margin-bottom:.5rem">服務項目</span>${d.services.map(s=>`<span style="display:block;font-size:var(--fs-sm);color:var(--deep);line-height:1.9">• ${s}</span>`).join('')}</li>`;
+    }
+    if (d.contact) {
+      html += `<li style="list-style:none;margin-top:.8rem"><span style="font-size:var(--fs-xs);color:var(--warm);letter-spacing:.1em;display:block;margin-bottom:.3rem">預約聯繫</span><a href="mailto:${d.contact}" style="font-size:var(--fs-sm);color:var(--clay);border-bottom:1px solid currentColor">${d.contact}</a></li>`;
+    }
+  } else {
+    html = d.creds.map(c => `<li>${c}</li>`).join('');
+  }
+  ul.innerHTML = html;
+  const modal = document.getElementById('teamModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTeamModal() {
+  document.getElementById('teamModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTeamModal(); });
+</script>
+
+</body>
+</html>
