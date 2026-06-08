@@ -936,7 +936,7 @@
         銀行代號：<strong style="color:var(--deep)">803 聯邦銀行永春分行</strong><br>
         帳戶號碼：<strong style="color:var(--deep)">079-50-0033741</strong><br>
         <strong style="color:var(--deep);display:block;margin-top:.6rem;margin-bottom:.3rem">退費機制</strong>
-        <span style="font-size:var(--fs-xs)">開課前14天以上取消：退費100%；開課前7-13天取消：退費70%；開課前1-6天取消：退費50%；開課當天或之後：不予退費。若因不可抗力因素，得協商改期或延課。</span>
+        <span style="font-size:var(--fs-xs)">上課前(含)7天提出申請，退費70%; 上課前(含)六天至前(含)三天提出申請，退費50%; 上課前(含)二天至前(含)一天提出，恕不退費。若臨時因事無法參與，可將已繳費用轉讓他人使用。</span>
       </div>
       <form id="reikiTrainingForm" onsubmit="submitReikiTrainingReg(event)" novalidate>
         <div style="display:grid;gap:.9rem">
@@ -1130,6 +1130,11 @@
         <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openEvent('e3')">
           <div class="booking-icon" style="background:var(--clay)"><span style="color:var(--sand);font-size:1.1rem">✦</span></div>
           <div><p class="booking-label">課程報名</p><p class="booking-value">解惑教練培訓 — 報名表</p></div>
+          <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+        <div class="booking-card" style="cursor:pointer" onclick="closeBooking();openEvent('e1')">
+          <div class="booking-icon" style="background:var(--clay)"><span style="color:var(--sand);font-size:1.1rem">✧</span></div>
+          <div><p class="booking-label">課程報名</p><p class="booking-value">光的課程 — 報名表</p></div>
           <span class="booking-arrow"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
         </div>
       </div>
@@ -1734,7 +1739,7 @@ const EVENTS = {
 
 <div style="background:var(--linen);padding:1rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:2">
 <strong style="color:var(--deep)">📅 上課時間</strong>：每堂 上午10:00 ~ 下午5:30（地點：台北信義區）<br>
-<strong style="color:var(--deep)">退費機制</strong>：開課前14天以上取消退費100%；7–13天退70%；1–6天退50%；開課當天或之後不予退費<br>
+<strong style="color:var(--deep)">退費機制</strong>：上課前(含)7天提出申請，退費70%; 上課前(含)六天至前(含)三天提出申請，退費50%; 上課前(含)二天至前(含)一天提出，恕不退費。若臨時因事無法參與，可將已繳費用轉讓他人使用。<br>
 <strong style="color:var(--deep)">💳 匯款</strong>：帳戶姓名 陳懿｜803聯邦銀行永春分行｜079-50-0033741
 </div>
 
