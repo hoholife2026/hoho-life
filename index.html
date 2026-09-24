@@ -1494,7 +1494,7 @@ function onTurnstileLoad(){
   turnstileWidgetId = turnstile.render('#turnstile-container', {
     sitekey: TURNSTILE_SITE_KEY,
     size: 'invisible',
-    retry: 'auto',
+    retry: 'never',
     callback: function(token){
       if(_tsResolve){ _tsResolve(token); _tsResolve=null; _tsReject=null; }
     },
@@ -1514,11 +1514,33 @@ function onTurnstileLoad(){
 function getTurnstileToken(){
   return new Promise((resolve, reject)=>{
     if (typeof turnstile === 'undefined' || turnstileWidgetId === null){
-      reject(new Error('人機驗證元件載入失敗，請重新整理頁面後再試一次'));
+      reject(new Error('人機驗證元件載入失敗，請確認網路連線後重新整理頁面再試一次'));
       return;
     }
-    _tsResolve = resolve;
-    _tsReject  = reject;
+
+    // 逾時保護：避免因網路無法連上 Cloudflare 驗證伺服器時無限卡住
+    var settled = false;
+    var timeoutId = setTimeout(function(){
+      if(settled) return;
+      settled = true;
+      _tsResolve = null;
+      _tsReject  = null;
+      reject(new Error('人機驗證逾時，可能是網路連線問題，請確認網路後重新整理頁面再試一次'));
+    }, 15000);
+
+    _tsResolve = function(token){
+      if(settled) return;
+      settled = true;
+      clearTimeout(timeoutId);
+      resolve(token);
+    };
+    _tsReject = function(err){
+      if(settled) return;
+      settled = true;
+      clearTimeout(timeoutId);
+      reject(err);
+    };
+
     turnstile.reset(turnstileWidgetId);
     turnstile.execute(turnstileWidgetId);
   });
