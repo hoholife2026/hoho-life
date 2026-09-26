@@ -33,6 +33,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+  <!-- Cloudflare Turnstile SDK -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit" async defer></script>
   <style>
     :root{
       --sand:#f5f0e8;--linen:#ede5d8;--sage:#b8c4b1;--moss:#7a8f72;
@@ -438,8 +440,32 @@
     .tm-close:hover{opacity:1}
 
     </style>
+
+<!-- Cloudflare Turnstile -->
+<script>
+  window.hohoTurnstileReadyCallbacks = [];
+
+  function hohoTurnstileLoaded() {
+    var callbacks = window.hohoTurnstileReadyCallbacks || [];
+
+    window.hohoTurnstileReadyCallbacks = [];
+
+    callbacks.forEach(function(fn) {
+      fn();
+    });
+  }
+</script>
+
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=hohoTurnstileLoaded"
+  defer>
+</script>
+
 </head>
+
 <body class="weave-bg">
+<!-- Cloudflare Turnstile 隱形驗證容器（所有表單共用） -->
+<div id="turnstile-container" data-size="invisible"></div>
 
 <div class="reading-bar" id="readingBar"></div>
 
@@ -776,6 +802,7 @@
         <span style="font-size:var(--fs-xs);opacity:.7">※ 報名手續將在匯款確認後才正式完成</span>
       </div>
       <form id="onenessForm" onsubmit="submitOnenessReg(event)" novalidate>
+        <input type="text" name="b_website" style="display:none;" tabindex="-1" autocomplete="off">
         <div style="display:grid;gap:.9rem">
           <div class="form-group">
             <label class="form-label">課程班別 <span class="req">*</span></label>
@@ -838,7 +865,7 @@
           </div>
           <div class="form-group">
             <label class="form-label">您的匯款帳號後五碼 <span class="req">*</span></label>
-            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5"/>
+            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5" inputmode="numeric" pattern="\d{5}"/>
           </div>
           <div class="form-group">
             <label class="form-label">備注</label>
@@ -880,6 +907,7 @@
         <span style="font-size:var(--fs-xs);opacity:.7">※ 匯款確認後報名手續才正式完成</span>
       </div>
       <form id="jiehuForm" onsubmit="submitJiehuReg(event)" novalidate>
+        <input type="text" name="b_website" style="display:none;" tabindex="-1" autocomplete="off">
         <div style="display:grid;gap:.9rem">
           <div class="form-row two">
             <div class="form-group">
@@ -917,7 +945,7 @@
           </div>
           <div class="form-group">
             <label class="form-label">您的匯款帳號後五碼 <span class="req">*</span></label>
-            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5"/>
+            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5" inputmode="numeric" pattern="\d{5}"/>
           </div>
         </div>
         <div id="jiehuMsg" style="display:none;margin-top:1rem;padding:.8rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div>
@@ -956,6 +984,7 @@
         <span style="font-size:var(--fs-xs)">上課前(含)7天提出申請，退費70%; 上課前(含)六天至前(含)三天提出申請，退費50%; 上課前(含)二天至前(含)一天提出，恕不退費。若臨時因事無法參與，可將已繳費用轉讓他人使用。</span>
       </div>
       <form id="reikiTrainingForm" onsubmit="submitReikiTrainingReg(event)" novalidate>
+        <input type="text" name="b_website" style="display:none;" tabindex="-1" autocomplete="off">
         <div style="display:grid;gap:.9rem">
           <div class="form-group">
             <label class="form-label">課程班別 <span class="req">*</span></label>
@@ -993,7 +1022,7 @@
           </div>
           <div class="form-group">
             <label class="form-label">您的匯款帳號後五碼 <span class="req">*</span></label>
-            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5"/>
+            <input type="text" name="transfer_code" class="form-input" placeholder="請輸入匯款帳號後五碼" required maxlength="5" inputmode="numeric" pattern="\d{5}"/>
           </div>
           <div class="form-group">
             <label class="form-label">介紹人</label>
@@ -1036,6 +1065,7 @@
     </div>
     <div style="padding:2rem 3rem 2.5rem">
       <form id="regForm" onsubmit="submitReg(event)" novalidate>
+        <input type="text" name="b_website" style="display:none;" tabindex="-1" autocomplete="off">
         <div class="form-row two">
           <div class="form-group">
             <label class="form-label">中文姓名 <span class="req">*</span></label>
@@ -1410,24 +1440,24 @@ const SERVICES = {
   consulting:{
    img:'images/service-consulting.jpg',
     badge:'解惑諮詢', title:'解惑諮詢・一對一',
-    body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1.2rem">與一般諮詢不同，解惑諮詢有<strong style="color:var(--deep)">能量場的運作</strong>，除能清楚看見核心問題，也能找到具體協助，疏通卡點。經德國 Timewaver 量子儀檢測，有效提升參與者能量。</p><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1.2rem">當你越了解自己，就能把自己力量發揮到最大。這套牌卡結合能量學與心理學，協助你消除重複困擾，獲得解答和療癒。不管職場上的、和父母親人的關係、財務、伴侶、身體健康...甚至是...自我價值議題都可以。歡迎你來體驗神奇的解惑諮詢！</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem"><div style="background:var(--linen);padding:.9rem;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--warm);opacity:.7;margin-bottom:.3rem">✦</div><div style="font-family:'Noto Serif TC',serif;font-size:var(--fs-base);color:var(--deep);margin-bottom:.2rem">能量會說話</div><div style="font-size:var(--fs-sm);color:var(--warm);opacity:.75;line-height:1.7">諮詢過程能量場同步運作，清楚看見核心問題，找到具體協助。</div></div><div style="background:var(--linen);padding:.9rem;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--warm);opacity:.7;margin-bottom:.3rem">◎</div><div style="font-family:'Noto Serif TC',serif;font-size:var(--fs-base);color:var(--deep);margin-bottom:.2rem">雙國際證照</div><div style="font-size:var(--fs-sm);color:var(--warm);opacity:.75;line-height:1.7">美國 IAPC 與英國 CAMBMS 國際認可，結合能量學與心理學。</div></div></div><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.6rem">教練怎麼說</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;font-style:italic;margin-bottom:.6rem">「解惑是陪伴你看見自己生活的小習慣，去走到你滿意的軌道，好好過你的人生，拿回自己的力量。」— Simone</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;font-style:italic;margin-bottom:.6rem">「解惑諮詢的威力，不僅僅是你帶來的這個問題而已，很多時候它會在各層面去協助我們破除長期以來我們的慣性。」— Kim</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;font-style:italic">「解惑培訓讓我明白，除了我所熟悉的自己外，還有一個我不太熟悉的自己，當我去整合內在所有面向，內在會有一股力量長出，讓我感覺更踏實。」— Lois</p></div><div style="background:var(--linen);padding:1rem;margin-bottom:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.6rem">個案回饋</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;margin-bottom:.4rem">「雖然表面上只是問一個重點問題，讓能量聚焦，但透過層層抽卡，會發現到非常深處的自己。諮詢過程屢次讓我雞皮疙瘩，真的不得不說，很神奇且直指核心，讓我看到一直知道卻沒有去直視面對的問題。這次體驗讓我再次感受到宇宙的奧妙！並知道照顧好自己，照亮自己，就能成為別人的光。」</p><p style="font-size:var(--fs-sm);color:var(--warm);opacity:.7;text-align:right;margin-bottom:.8rem">— 鍾小姐</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;margin-bottom:.4rem">「做完之後覺得自己輕鬆許多，悶悶的感覺消失了。很喜歡這樣的諮詢方式，讓我看到自己一直忽略的地方，也找到了前進的方向。」</p><p style="font-size:var(--fs-sm);color:var(--warm);opacity:.7;text-align:right">— 李小姐</p></div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.8rem">立即預約 · 一對一諮詢 $3,000／次（約2小時）</p><p style="font-size:var(--fs-sm);color:var(--warm);line-height:1.8;margin-bottom:.8rem">地點：台北市基隆路一段141號6樓之2，近市政府捷運站<br>服務方式：僅限面對面進行<br>請留下方便的3個時間點，我們會與您確認。</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="c_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="c_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="c_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="c_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="c_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><button onclick="submitServiceForm('consulting')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="c_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div></div></div>`
+    body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1.2rem">與一般諮詢不同，解惑諮詢有<strong style="color:var(--deep)">能量場的運作</strong>，除能清楚看見核心問題，也能找到具體協助，疏通卡點。經德國 Timewaver 量子儀檢測，有效提升參與者能量。</p><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1.2rem">當你越了解自己，就能把自己力量發揮到最大。這套牌卡結合能量學與心理學，協助你消除重複困擾，獲得解答和療癒。不管職場上的、和父母親人的關係、財務、伴侶、身體健康...甚至是...自我價值議題都可以。歡迎你來體驗神奇的解惑諮詢！</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem"><div style="background:var(--linen);padding:.9rem;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--warm);opacity:.7;margin-bottom:.3rem">✦</div><div style="font-family:'Noto Serif TC',serif;font-size:var(--fs-base);color:var(--deep);margin-bottom:.2rem">能量會說話</div><div style="font-size:var(--fs-sm);color:var(--warm);opacity:.75;line-height:1.7">諮詢過程能量場同步運作，清楚看見核心問題，找到具體協助。</div></div><div style="background:var(--linen);padding:.9rem;text-align:center"><div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--warm);opacity:.7;margin-bottom:.3rem">◎</div><div style="font-family:'Noto Serif TC',serif;font-size:var(--fs-base);color:var(--deep);margin-bottom:.2rem">雙國際證照</div><div style="font-size:var(--fs-sm);color:var(--warm);opacity:.75;line-height:1.7">美國 IAPC 與英國 CAMBMS 國際認可，結合能量學與心理學。</div></div></div><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.6rem">教練怎麼說</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;font-style:italic;margin-bottom:.6rem">「解惑是陪伴你看見自己生活的小習慣，去走到你滿意的軌道，好好過你的人生，拿回自己的力量。」— Simone</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;font-style:italic;margin-bottom:.6rem">「解惑諮詢的威力，不僅僅是你帶來的這個問題而已，很多時候它會在各層面去協助我們破除長期以來我們的慣性。」— Kim</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;font-style:italic">「解惑培訓讓我明白，除了我所熟悉的自己外，還有一個我不太熟悉的自己，當我去整合內在所有面向，內在會有一股力量長出，讓我感覺更踏實。」— Lois</p></div><div style="background:var(--linen);padding:1rem;margin-bottom:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.6rem">個案回饋</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;margin-bottom:.4rem">「雖然表面上只是問一個重點問題，讓能量聚焦，但透過層層抽卡，會發現到非常深處的自己。諮詢過程屢次讓我雞皮疙瘩，真的不得不說，很神奇且直指核心，讓我看到一直知道卻沒有去直視面對的問題。這次體驗讓我再次感受到宇宙的奧妙！並知道照顧好自己，照亮自己，就能成為別人的光。」</p><p style="font-size:var(--fs-sm);color:var(--warm);opacity:.7;text-align:right;margin-bottom:.8rem">— 鍾小姐</p><p style="font-size:var(--fs-base);color:var(--deep);line-height:2;margin-bottom:.4rem">「做完之後覺得自己輕鬆許多，悶悶的感覺消失了。很喜歡這樣的諮詢方式，讓我看到自己一直忽略的地方，也找到了前進的方向。」</p><p style="font-size:var(--fs-sm);color:var(--warm);opacity:.7;text-align:right">— 李小姐</p></div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.8rem">立即預約 · 一對一諮詢 $3,000／次（約2小時）</p><p style="font-size:var(--fs-sm);color:var(--warm);line-height:1.8;margin-bottom:.8rem">地點：台北市基隆路一段141號6樓之2，近市政府捷運站<br>服務方式：僅限面對面進行<br>請留下方便的3個時間點，我們會與您確認。</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="c_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="c_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="c_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="c_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="c_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="text" id="c_hp" name="b_website" style="display:none;" tabindex="-1" autocomplete="off"/><button onclick="submitServiceForm('consulting')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="c_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div></div></div>`
   },
   reiki:{
     img:'images/event-reiki.jpg',
     badge:'聖火靈氣療癒・個案預約', title:'聖火靈氣療癒',
     body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1rem">聖火靈氣是新世紀開啟的能量系統，它擁有較高的振動頻率，是對現代人大加分的能量療癒工具，它能卸除焦慮緊張的情緒和身心煩腦，使人在身心靈層面都更加完整。<br><strong style="color:var(--deep)">靈(Rei)＝宇宙；氣(Ki)＝生命能量。</strong>靈氣意指宇宙生命的自然能量，透過雙手，重新將一個人帶回身心靈平衡。它是被西方國家認證允許進入醫療體系的輔助療法，協助病患促進身體的自癒能力，復原身體心理和精神疾病。</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem"><div style="background:var(--linen);padding:.8rem"><div style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.4rem">對身體的作用</div><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><li>改善體質、改善睡眠品質</li><li>舒緩痛症、加速恢復疲勞</li><li>去除肩膀酸痛、關節疼痛</li><li>改善過敏、皮膚質素</li><li>加速術後痊癒</li></ul></div><div style="background:var(--linen);padding:.8rem"><div style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.4rem">對心理的作用</div><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><li>消解不安及煩躁情緒</li><li>消解焦慮及壓力</li><li>處理情緒病／心理障礙</li><li>減輕心理造成的痛楚</li><li>清楚困擾因素，並獲得解決方法</li></ul></div></div><div style="background:var(--linen);padding:.8rem;margin-bottom:.8rem"><div style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.4rem">對開發創造力及能力相關的作用</div><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><li>提升直覺力與創意思考</li><li>強化專注力與學習能力</li><li>激發潛能，突破自我限制</li><li>提升靈感與創造性表達</li></ul></div><div style="background:var(--linen);padding:.8rem;margin-bottom:.8rem"><p style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.4rem">＊做靈氣療法一定要本人到場嗎?</p><p style="font-size:var(--fs-base);color:var(--warm);line-height:1.8">不一定。靈氣是宇宙能量，不受時間與空間限制，可以進行遠距靈氣療癒。客戶只需在約定時間放鬆靜待即可接收到療癒能量。</p></div><div style="background:var(--linen);padding:.8rem;margin-bottom:.8rem"><p style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.4rem">＊接受靈氣後要注意什麼?</p><p style="font-size:var(--fs-base);color:var(--warm);line-height:1.8">接受靈氣後建議多喝水，讓身體代謝更順暢。部分人可能感覺特別放鬆甚至想睡覺，這是正常反應，請充分休息。避免立即進行劇烈運動，讓能量自然整合。</p></div><div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.8"><strong style="color:var(--deep)">附註：</strong><br>1. 本服務不提供任何醫療診斷與醫療服務。如有任何疾病，請先尋求合格之中西醫師洽詢。<br>2. 請提前預約說明症狀及確認時間、地點。</div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.6rem">個案預約 · 聖火靈氣療癒 $2,500（90分鐘）</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="r_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="r_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="r_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="r_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="r_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/>
-<div style="margin-top:.6rem"><div style="font-size:var(--fs-base);color:var(--warm);opacity:.75;margin-bottom:.5rem;letter-spacing:.08em">欲進行的形式？<span style="color:#a04040">*</span></div><div style="display:flex;flex-direction:row;gap:2rem;align-items:center"><label style="display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-base);color:var(--deep);cursor:pointer"><input type="radio" name="r_form_type" id="r_form_face" value="實體" style="margin:0;width:15px;height:15px;flex-shrink:0"/> 實體</label><label style="display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-base);color:var(--deep);cursor:pointer"><input type="radio" name="r_form_type" id="r_form_remote" value="遠距" style="margin:0;width:15px;height:15px;flex-shrink:0"/> 遠距</label></div></div></div><button onclick="submitServiceForm('reiki')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="r_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-base);border-radius:2px;text-align:center"></div></div></div>`
+<div style="margin-top:.6rem"><div style="font-size:var(--fs-base);color:var(--warm);opacity:.75;margin-bottom:.5rem;letter-spacing:.08em">欲進行的形式？<span style="color:#a04040">*</span></div><div style="display:flex;flex-direction:row;gap:2rem;align-items:center"><label style="display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-base);color:var(--deep);cursor:pointer"><input type="radio" name="r_form_type" id="r_form_face" value="實體" style="margin:0;width:15px;height:15px;flex-shrink:0"/> 實體</label><label style="display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-base);color:var(--deep);cursor:pointer"><input type="radio" name="r_form_type" id="r_form_remote" value="遠距" style="margin:0;width:15px;height:15px;flex-shrink:0"/> 遠距</label></div></div></div><input type="text" id="r_hp" name="b_website" style="display:none;" tabindex="-1" autocomplete="off"/><button onclick="submitServiceForm('reiki')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="r_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-base);border-radius:2px;text-align:center"></div></div></div>`
   },
   hypno:{
     img:'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80',
     badge:'催眠療癒・個案預約', title:'催眠療癒',
     body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1rem">身體常疲憊或僵硬，無法放鬆？常常睡不好？或是身體有某個狀態一直好不了，儘管看了好多醫生也沒有用？試試看催眠，或許你的身心想對你說什麼。體驗讓你感受到徹底放鬆的感覺，頭腦放鬆了，身心也就鬆了。</p><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1rem">我們潛意識的智慧和記載的資料庫，都比意識層面更多更廣。
-催眠是協助你進入更放鬆的狀態，與你的<strong style="color:var(--deep)">潛意識連結</strong>，讓你的內在給予你更清楚的指引。</p><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.5rem">催眠能協助你什麼？</p><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-base);color:var(--warm);line-height:2"><li>協助放鬆，改善失眠/情緒/人際關係的困擾</li><li>主題焦點療癒：譬如減肥，戒菸，戒除特定不想要的習慣</li><li>身心狀況療癒：常有莫名疼痛，但找不出原因，或尋求物理治療未轉好者，可藉此改善</li><li>釋放情緒卡關、長期的限制性信念</li></ul></div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.4rem">期間限定優惠</p><p style="font-size:1.1rem;color:var(--deep);font-family:'Noto Serif TC',serif;margin-bottom:.3rem"><strong>$3,000 / 2hrs</strong> <span style="text-decoration:line-through;font-size:.85rem;color:var(--warm);opacity:.6">原價 $6,000 / 2hrs</span></p><p style="font-size:var(--fs-sm);color:var(--warm);line-height:1.7;margin-bottom:.8rem">* 優惠價限未參與過者使用，每人限用一次，不指定教練</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="h_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="h_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="h_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="h_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="h_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><button onclick="submitServiceForm('hypno')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="h_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div></div></div>`
+催眠是協助你進入更放鬆的狀態，與你的<strong style="color:var(--deep)">潛意識連結</strong>，讓你的內在給予你更清楚的指引。</p><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.5rem">催眠能協助你什麼？</p><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-base);color:var(--warm);line-height:2"><li>協助放鬆，改善失眠/情緒/人際關係的困擾</li><li>主題焦點療癒：譬如減肥，戒菸，戒除特定不想要的習慣</li><li>身心狀況療癒：常有莫名疼痛，但找不出原因，或尋求物理治療未轉好者，可藉此改善</li><li>釋放情緒卡關、長期的限制性信念</li></ul></div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.4rem">期間限定優惠</p><p style="font-size:1.1rem;color:var(--deep);font-family:'Noto Serif TC',serif;margin-bottom:.3rem"><strong>$3,000 / 2hrs</strong> <span style="text-decoration:line-through;font-size:.85rem;color:var(--warm);opacity:.6">原價 $6,000 / 2hrs</span></p><p style="font-size:var(--fs-sm);color:var(--warm);line-height:1.7;margin-bottom:.8rem">* 優惠價限未參與過者使用，每人限用一次，不指定教練</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="h_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="h_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="h_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="h_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="h_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="text" id="h_hp" name="b_website" style="display:none;" tabindex="-1" autocomplete="off"/><button onclick="submitServiceForm('hypno')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="h_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div></div></div>`
   },
   srt:{
     img:'https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?w=900&q=80',
     badge:'SRT・靈性反應療法', title:'SRT 靈性反應療法',
-    body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1rem">靈性反應療法（Spiritual Response Therapy），是一個充滿力量、快速與準確的療法。藉由 SRT 找出困惑已久的問題根源（工作、愛情、家庭、人際、財務等），將造成問題的<strong style="color:var(--deep)">負面設定或靈魂記錄移除</strong>，創造更美好豐盛的新人生。</p><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.5rem">SRT 可以幫助你</p><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-base);color:var(--warm);line-height:2"><li>打破舊習慣：慾望、上癮、孩童期恐懼感</li><li>釋放舊模式：行不通的關係、再三犯同樣錯誤、情感挫敗</li><li>征服自己：克服畏懼感、憂鬱症、強迫觀念、放下過去</li><li>增加你的氣場：將負面想法改變為正面</li><li>達到你的最高峰：完成夢想、找出清晰目標、加強信心</li><li>增進健康：有效面對健康的挑戰和身體不適</li><li>清除負面氣場：工作、家居、重要會議前後</li></ul></div><div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">了解更多</strong>：靈性反應療法（SRT）是由 Rev. Robert E. Detzler 所創建的靈性療癒系統，透過靈擺和靈性圖表，與高我溝通，清除阻礙靈魂進化的負面設定程式與能量。它能快速、準確地找出問題根源，無論是今生的創傷或跨越時間的靈魂記憶，都可進行清理與釋放，協助個案創造更輕盈、更豐盛的生命。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">為什麼需要做 SRT？</strong>很多我們想不通的卡點，其實藏在潛意識或前世。SRT 就像心靈的除塵器，幫你把那些看不見的負面阻礙一併清乾淨。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">我能幫身邊的家人做嗎？</strong>療癒必須經過對方「高我」的同意。每個人都有自己的靈魂功課，就算是再親的人，我們也無法強行介入對方的生命轉變。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">療癒後注意事項</strong>：接受SRT療癒後身體會有3–7天反應期，可能特別沒精神、容易累、嗜睡，請多喝水、多休息。</div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.8rem">立即預約 · 一對一SRT $4,800（約90–120分鐘）</p><p style="font-size:var(--fs-sm);color:var(--warm);line-height:1.8;margin-bottom:.8rem">地點：台北市基隆路一段141號6樓之2，近市政府捷運站<br>請留下方便的3個時間點，我們會與您確認。</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="s_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="s_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="s_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="s_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="s_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><button onclick="submitServiceForm('srt')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="s_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div></div></div>`
+    body:`<div style="padding:1.8rem 2.5rem"><p style="font-size:var(--fs-base);color:var(--warm);line-height:2.2;margin-bottom:1rem">靈性反應療法（Spiritual Response Therapy），是一個充滿力量、快速與準確的療法。藉由 SRT 找出困惑已久的問題根源（工作、愛情、家庭、人際、財務等），將造成問題的<strong style="color:var(--deep)">負面設定或靈魂記錄移除</strong>，創造更美好豐盛的新人生。</p><div style="background:var(--linen);padding:1rem;margin-bottom:1rem"><p style="font-size:var(--fs-sm);font-weight:500;color:var(--deep);margin-bottom:.5rem">SRT 可以幫助你</p><ul style="list-style:disc;padding-left:1rem;font-size:var(--fs-base);color:var(--warm);line-height:2"><li>打破舊習慣：慾望、上癮、孩童期恐懼感</li><li>釋放舊模式：行不通的關係、再三犯同樣錯誤、情感挫敗</li><li>征服自己：克服畏懼感、憂鬱症、強迫觀念、放下過去</li><li>增加你的氣場：將負面想法改變為正面</li><li>達到你的最高峰：完成夢想、找出清晰目標、加強信心</li><li>增進健康：有效面對健康的挑戰和身體不適</li><li>清除負面氣場：工作、家居、重要會議前後</li></ul></div><div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">了解更多</strong>：靈性反應療法（SRT）是由 Rev. Robert E. Detzler 所創建的靈性療癒系統，透過靈擺和靈性圖表，與高我溝通，清除阻礙靈魂進化的負面設定程式與能量。它能快速、準確地找出問題根源，無論是今生的創傷或跨越時間的靈魂記憶，都可進行清理與釋放，協助個案創造更輕盈、更豐盛的生命。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">為什麼需要做 SRT？</strong>很多我們想不通的卡點，其實藏在潛意識或前世。SRT 就像心靈的除塵器，幫你把那些看不見的負面阻礙一併清乾淨。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">我能幫身邊的家人做嗎？</strong>療癒必須經過對方「高我」的同意。每個人都有自己的靈魂功課，就算是再親的人，我們也無法強行介入對方的生命轉變。</div> <div style="background:var(--linen);padding:.8rem;margin-bottom:1rem;font-size:var(--fs-base);color:var(--warm);line-height:1.9"><strong style="color:var(--deep)">療癒後注意事項</strong>：接受SRT療癒後身體會有3–7天反應期，可能特別沒精神、容易累、嗜睡，請多喝水、多休息。</div><div style="background:var(--sand);border:1px solid rgba(180,160,130,.3);padding:1.2rem"><p style="font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;color:var(--warm);opacity:.6;margin-bottom:.8rem">立即預約 · 一對一SRT $4,800（約90–120分鐘）</p><p style="font-size:var(--fs-sm);color:var(--warm);line-height:1.8;margin-bottom:.8rem">地點：台北市基隆路一段141號6樓之2，近市政府捷運站<br>請留下方便的3個時間點，我們會與您確認。</p><div style="display:grid;gap:.6rem"><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem"><input type="text" id="s_name" placeholder="中文姓名 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><input type="tel" id="s_phone" placeholder="手機 *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="email" id="s_email" placeholder="Email *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/><textarea id="s_times" placeholder="方便的3個時間點 *" rows="2" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;resize:vertical;width:100%"></textarea><input type="text" id="s_source" placeholder="您如何得知這個活動？ *" style="border:1px solid rgba(180,160,130,.4);background:var(--linen);padding:.5rem .7rem;font-size:var(--fs-base);color:var(--deep);outline:none;border-radius:2px;width:100%"/></div><input type="text" id="s_hp" name="b_website" style="display:none;" tabindex="-1" autocomplete="off"/><button onclick="submitServiceForm('srt')" style="width:100%;margin-top:.8rem;padding:.75rem;background:var(--warm);color:var(--sand);border:none;border-radius:3rem;font-family:'Noto Serif TC',serif;font-size:var(--fs-base);letter-spacing:.1em;cursor:pointer">送出預約</button><div id="s_msg" style="display:none;margin-top:.6rem;padding:.6rem;font-size:var(--fs-sm);border-radius:2px;text-align:center"></div></div></div>`
   }
 };
 
@@ -1451,13 +1481,78 @@ function closeServiceModal(){
 document.getElementById('serviceModal').addEventListener('click',e=>{if(e.target===document.getElementById('serviceModal'))closeServiceModal();});
 
 // ══════════════════════════════════════════════════════════════════
-//  GOOGLE SHEETS API 串接設定
+//  Cloudflare Turnstile（隱形人機驗證）
 // ══════════════════════════════════════════════════════════════════
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzrxJq0NTeoiNvQpyxZ6KDCOovCW8FM_b3BYMvaOM0mGHp7a_GmNkhQ8R6X3X-KuwEMkQ/exec';
+const TURNSTILE_SITE_KEY = "0x4AAAAAAE_qyYtAPnOb0Ija";
+let turnstileWidgetId = null;
+let _tsResolve = null;
+let _tsReject  = null;
+
+// Turnstile SDK 載入完成後呼叫（見 <head> script 的 onload=onTurnstileLoad）
+function onTurnstileLoad(){
+  if (typeof turnstile === 'undefined') return;
+  turnstileWidgetId = turnstile.render('#turnstile-container', {
+    sitekey: TURNSTILE_SITE_KEY,
+    size: 'invisible',
+    retry: 'never',
+    callback: function(token){
+      if(_tsResolve){ _tsResolve(token); _tsResolve=null; _tsReject=null; }
+    },
+    'error-callback': function(){
+      if(_tsReject){ _tsReject(new Error('人機驗證失敗，請重新整理頁面後再試一次')); _tsResolve=null; _tsReject=null; }
+    },
+    'expired-callback': function(){
+      if(turnstileWidgetId!==null) turnstile.reset(turnstileWidgetId);
+    }
+  });
+}
 
 /**
- * 統一送出函式：將資料 POST 到 Google Apps Script
- * @param {Object} data  - 報名欄位 key-value
+ * 觸發一次隱形驗證，回傳 Promise<token>
+ * 每次表單提交前呼叫，確保拿到新鮮 token
+ */
+function getTurnstileToken(){
+  return new Promise((resolve, reject)=>{
+    if (typeof turnstile === 'undefined' || turnstileWidgetId === null){
+      reject(new Error('人機驗證元件載入失敗，請確認網路連線後重新整理頁面再試一次'));
+      return;
+    }
+
+    // 逾時保護：避免因網路無法連上 Cloudflare 驗證伺服器時無限卡住
+    var settled = false;
+    var timeoutId = setTimeout(function(){
+      if(settled) return;
+      settled = true;
+      _tsResolve = null;
+      _tsReject  = null;
+      reject(new Error('人機驗證逾時，可能是網路連線問題，請確認網路後重新整理頁面再試一次'));
+    }, 15000);
+
+    _tsResolve = function(token){
+      if(settled) return;
+      settled = true;
+      clearTimeout(timeoutId);
+      resolve(token);
+    };
+    _tsReject = function(err){
+      if(settled) return;
+      settled = true;
+      clearTimeout(timeoutId);
+      reject(err);
+    };
+
+    turnstile.reset(turnstileWidgetId);
+    turnstile.execute(turnstileWidgetId);
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  報名資料送出（透過 Vercel Serverless Function 二次驗證後寫入 Sheet）
+// ══════════════════════════════════════════════════════════════════
+
+/**
+ * 統一送出函式：將資料 POST 到 /api/submit-booking
+ * @param {Object} data  - 報名欄位 key-value（含蜜罐欄位 b_website）
  * @param {string} msgId - 顯示結果的 DOM id
  * @param {Function} [onSuccess] - 成功後 callback
  */
@@ -1468,23 +1563,34 @@ async function sendToSheet(data, msgId, onSuccess){
     msgEl.textContent='⏳ 傳送中，請稍候…';
   }
   try{
-    const res = await fetch(GAS_URL, {
+    // 蜜罐欄位有值：不阻擋 UI，只是靜靜不送出真實請求（機器人不需要收到破綻提示）
+    let turnstileToken = '';
+    if(!data.b_website){
+      turnstileToken = await getTurnstileToken();
+    }
+
+    const res = await fetch('/api/submit-booking', {
       method:'POST',
-      mode:'no-cors',   // GAS 需 no-cors
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(data)
+      body: JSON.stringify({ ...data, turnstileToken })
     });
-    // no-cors 無法讀取 response body，視為成功
+    let result = {};
+    try{ result = await res.json(); }catch(_){}
+
+    if(!res.ok){
+      throw new Error(result.message || '提交失敗，請稍後再試');
+    }
+
     if(msgEl){
       msgEl.style.cssText='display:block;background:rgba(122,143,114,.15);color:var(--moss);border:1px solid rgba(122,143,114,.3);padding:.8rem;border-radius:2px;text-align:center';
-      msgEl.innerHTML='✅ 報名成功！確認信將寄送至您的 Email，請查收。';
+      msgEl.innerHTML='✅ '+(result.message||'報名成功！確認信將寄送至您的 Email，請查收。');
     }
     if(onSuccess) onSuccess();
   }catch(err){
-    console.error('GAS error:',err);
+    console.error('submit-booking error:',err);
     if(msgEl){
       msgEl.style.cssText='display:block;background:rgba(180,80,80,.08);color:#a04040;border:1px solid rgba(180,80,80,.2);padding:.8rem;border-radius:2px;text-align:center';
-      msgEl.textContent='⚠️ 網路發送失敗，請直接來信 hoholife2026@gmail.com 或電話聯繫，抱歉造成不便。';
+      msgEl.textContent='⚠️ '+(err.message||'網路發送失敗，請直接來信 hoholife2026@gmail.com 或電話聯繫，抱歉造成不便。');
     }
   }
 }
@@ -1528,8 +1634,12 @@ function submitOnenessReg(e){
   if(!name_zh||!name_en||!phone||!email||!source||!transfer||!sEl||!gEl){
     showErr('onenessMsg','請填寫所有必填欄位（標示 * 者）'); return;
   }
+  if(!/^\d{5}$/.test(transfer)){
+    showErr('onenessMsg','匯款帳號後五碼請輸入 5 個數字'); return;
+  }
   const courseName = '合一覺醒課程 '+sEl.value;
   sendToSheet({
+    b_website: f.b_website.value,
     活動名稱: courseName,
     中文姓名: name_zh,
     英文姓名: name_en,
@@ -1572,7 +1682,11 @@ function submitJiehuReg(e){
   if(!name||!phone||!email||!referrer||!gEl||!cEl||!transfer){
     showErr('jiehuMsg','請填寫所有必填欄位'); return;
   }
+  if(!/^\d{5}$/.test(transfer)){
+    showErr('jiehuMsg','匯款帳號後五碼請輸入 5 個數字'); return;
+  }
   sendToSheet({
+    b_website: f.b_website.value,
     活動名稱: '解惑諮詢教練培訓',
     中文姓名: name,
     英文姓名: '—',
@@ -1617,8 +1731,12 @@ function submitReikiTrainingReg(e){
   if(!name_zh||!name_en||!phone||!email||!transfer||!seasonEl||!gEl){
     showErr('reikiTrainingMsg','請填寫所有必填欄位（標示 * 者）'); return;
   }
+  if(!/^\d{5}$/.test(transfer)){
+    showErr('reikiTrainingMsg','匯款帳號後五碼請輸入 5 個數字'); return;
+  }
   const courseName = '聖火靈氣執行師培訓 '+seasonEl.value;
   sendToSheet({
+    b_website: f.b_website.value,
     活動名稱: courseName,
     中文姓名: name_zh,
     英文姓名: name_en,
@@ -1806,6 +1924,7 @@ function submitReg(e){
     showErr('regMsg','請填寫所有必填欄位（標示 * 者）。'); return;
   }
   sendToSheet({
+    b_website: form.b_website.value,
     活動名稱: '光的課程 2026',
     中文姓名: name,
     英文姓名: '—',
@@ -1830,10 +1949,10 @@ function submitReg(e){
 // ══════════════════════════════════════════════════════════════════
 async function submitServiceForm(type){
   const map={
-    consulting:{name:'c_name',phone:'c_phone',email:'c_email',times:'c_times',source:'c_source',msg:'c_msg',label:'解惑諮詢預約',form:'欲進行形式：一對一面談'},
-    reiki:     {name:'r_name',phone:'r_phone',email:'r_email',times:'r_times',source:'r_source',formEl:'r_form_type',msg:'r_msg',label:'聖火靈氣療癒預約'},
-    hypno:     {name:'h_name',phone:'h_phone',email:'h_email',times:'h_times',source:'h_source',msg:'h_msg',label:'催眠療癒預約',form:'欲進行形式：催眠療癒'},
-    srt:       {name:'s_name',phone:'s_phone',email:'s_email',times:'s_times',source:'s_source',msg:'s_msg',label:'SRT靈性反應療法預約',form:'欲進行形式：SRT靈性反應療法'}
+    consulting:{name:'c_name',phone:'c_phone',email:'c_email',times:'c_times',source:'c_source',hp:'c_hp',msg:'c_msg',label:'解惑諮詢預約',form:'欲進行形式：一對一面談'},
+    reiki:     {name:'r_name',phone:'r_phone',email:'r_email',times:'r_times',source:'r_source',hp:'r_hp',formEl:'r_form_type',msg:'r_msg',label:'聖火靈氣療癒預約'},
+    hypno:     {name:'h_name',phone:'h_phone',email:'h_email',times:'h_times',source:'h_source',hp:'h_hp',msg:'h_msg',label:'催眠療癒預約',form:'欲進行形式：催眠療癒'},
+    srt:       {name:'s_name',phone:'s_phone',email:'s_email',times:'s_times',source:'s_source',hp:'s_hp',msg:'s_msg',label:'SRT靈性反應療法預約',form:'欲進行形式：SRT靈性反應療法'}
   };
   const m=map[type]; if(!m) return;
   const name  = document.getElementById(m.name)?.value.trim()||'';
@@ -1850,7 +1969,9 @@ async function submitServiceForm(type){
   if(m.formEl && !formType){
     showErr(m.msg,'請選擇欲進行的形式（標示 * 者）。'); return;
   }
+  const honeypot = document.getElementById(m.hp)?.value || '';
   await sendToSheet({
+    b_website: honeypot,
     活動名稱: m.label,
     中文姓名: name,
     英文姓名: '—',
