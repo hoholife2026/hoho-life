@@ -14,6 +14,8 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbzrxJq0NTeoiNvQpyxZ6KDC
 const PHONE_REGEX = /^09\d{8}$/;
 // 姓名欄位上限（沿用前端顯示邏輯，中文姓名/姓名皆用此鍵名）
 const NAME_MAX_LENGTH = 8;
+// 匯款帳號後五碼：必須剛好 5 個數字
+const TRANSFER_CODE_REGEX = /^\d{5}$/;
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -84,6 +86,13 @@ module.exports = async function handler(req, res) {
   }
   if (!name || name.length > NAME_MAX_LENGTH) {
     return res.status(400).json({ success: false, message: `姓名不可為空，且不可超過 ${NAME_MAX_LENGTH} 個字元` });
+  }
+
+  // 匯款後五碼：只有這個欄位「有實際填寫」（不是預設的 '—'）時才檢查格式，
+  // 因為不是每個表單都需要這個欄位（例如個案預約類的表單就沒有這欄）。
+  const transferCode = String(data['匯款後五碼'] || '').trim();
+  if (transferCode && transferCode !== '—' && !TRANSFER_CODE_REGEX.test(transferCode)) {
+    return res.status(400).json({ success: false, message: '匯款帳號後五碼格式錯誤，請輸入 5 個數字' });
   }
 
   // ── 4. 處理成功報名 ──────────────────────────────────────────
