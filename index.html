@@ -465,7 +465,7 @@
 
 <body class="weave-bg">
 <!-- Cloudflare Turnstile 隱形驗證容器（所有表單共用） -->
-<div id="turnstile-container"></div>
+<div id="turnstile-container" style="position:fixed;bottom:16px;right:16px;z-index:99999;"></div>
 
 <div class="reading-bar" id="readingBar"></div>
 
@@ -1494,6 +1494,7 @@ function onTurnstileLoad(){
   turnstileWidgetId = turnstile.render('#turnstile-container', {
     sitekey: TURNSTILE_SITE_KEY,
     retry: 'never',
+    size: 'compact',
     execution: 'execute',   // 不要一載入頁面就自動開始驗證，等使用者送出表單才開始
     callback: function(token){
       if(_tsResolve){ _tsResolve(token); _tsResolve=null; _tsReject=null; }
@@ -1637,6 +1638,9 @@ function submitOnenessReg(e){
   if(!/^09\d{8}$/.test(phone)){
     showErr('onenessMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
   }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    showErr('onenessMsg','Email 格式不正確'); return;
+  }
   if(!/^\d{5}$/.test(transfer)){
     showErr('onenessMsg','匯款帳號後五碼請輸入 5 個數字'); return;
   }
@@ -1687,6 +1691,9 @@ function submitJiehuReg(e){
   }
   if(!/^09\d{8}$/.test(phone)){
     showErr('jiehuMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    showErr('jiehuMsg','Email 格式不正確'); return;
   }
   if(!/^\d{5}$/.test(transfer)){
     showErr('jiehuMsg','匯款帳號後五碼請輸入 5 個數字'); return;
@@ -1739,6 +1746,9 @@ function submitReikiTrainingReg(e){
   }
   if(!/^09\d{8}$/.test(phone)){
     showErr('reikiTrainingMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    showErr('reikiTrainingMsg','Email 格式不正確'); return;
   }
   if(!/^\d{5}$/.test(transfer)){
     showErr('reikiTrainingMsg','匯款帳號後五碼請輸入 5 個數字'); return;
@@ -1935,6 +1945,9 @@ function submitReg(e){
   if(!/^09\d{8}$/.test(phone)){
     showErr('regMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
   }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    showErr('regMsg','Email 格式不正確'); return;
+  }
   sendToSheet({
     b_website: form.b_website.value,
     活動名稱: '光的課程 2026',
@@ -1980,6 +1993,9 @@ async function submitServiceForm(type){
   }
   if(!/^09\d{8}$/.test(phone)){
     showErr(m.msg,'手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    showErr(m.msg,'Email 格式不正確'); return;
   }
   if(m.formEl && !formType){
     showErr(m.msg,'請選擇欲進行的形式（標示 * 者）。'); return;
