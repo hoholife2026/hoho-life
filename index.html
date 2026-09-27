@@ -465,7 +465,7 @@
 
 <body class="weave-bg">
 <!-- Cloudflare Turnstile 隱形驗證容器（所有表單共用） -->
-<div id="turnstile-container" style="position:fixed;bottom:16px;right:16px;z-index:99999;"></div>
+<div id="turnstile-container"></div>
 
 <div class="reading-bar" id="readingBar"></div>
 
@@ -1493,7 +1493,6 @@ function onTurnstileLoad(){
   if (typeof turnstile === 'undefined') return;
   turnstileWidgetId = turnstile.render('#turnstile-container', {
     sitekey: TURNSTILE_SITE_KEY,
-    size: 'compact',
     retry: 'never',
     execution: 'execute',   // 不要一載入頁面就自動開始驗證，等使用者送出表單才開始
     callback: function(token){
@@ -1635,6 +1634,9 @@ function submitOnenessReg(e){
   if(!name_zh||!name_en||!phone||!email||!source||!transfer||!sEl||!gEl){
     showErr('onenessMsg','請填寫所有必填欄位（標示 * 者）'); return;
   }
+  if(!/^09\d{8}$/.test(phone)){
+    showErr('onenessMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+  }
   if(!/^\d{5}$/.test(transfer)){
     showErr('onenessMsg','匯款帳號後五碼請輸入 5 個數字'); return;
   }
@@ -1682,6 +1684,9 @@ function submitJiehuReg(e){
 
   if(!name||!phone||!email||!referrer||!gEl||!cEl||!transfer){
     showErr('jiehuMsg','請填寫所有必填欄位'); return;
+  }
+  if(!/^09\d{8}$/.test(phone)){
+    showErr('jiehuMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
   }
   if(!/^\d{5}$/.test(transfer)){
     showErr('jiehuMsg','匯款帳號後五碼請輸入 5 個數字'); return;
@@ -1731,6 +1736,9 @@ function submitReikiTrainingReg(e){
 
   if(!name_zh||!name_en||!phone||!email||!transfer||!seasonEl||!gEl){
     showErr('reikiTrainingMsg','請填寫所有必填欄位（標示 * 者）'); return;
+  }
+  if(!/^09\d{8}$/.test(phone)){
+    showErr('reikiTrainingMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
   }
   if(!/^\d{5}$/.test(transfer)){
     showErr('reikiTrainingMsg','匯款帳號後五碼請輸入 5 個數字'); return;
@@ -1924,6 +1932,9 @@ function submitReg(e){
   if(!name||!phone||!email||!genderEl||!course){
     showErr('regMsg','請填寫所有必填欄位（標示 * 者）。'); return;
   }
+  if(!/^09\d{8}$/.test(phone)){
+    showErr('regMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+  }
   sendToSheet({
     b_website: form.b_website.value,
     活動名稱: '光的課程 2026',
@@ -1966,6 +1977,9 @@ async function submitServiceForm(type){
   const formType   = formTypeEl ? formTypeEl.value : null;
   if(!name||!phone||!email||!times||!source){
     showErr(m.msg,'請填寫所有必填欄位（標示 * 者）。'); return;
+  }
+  if(!/^09\d{8}$/.test(phone)){
+    showErr(m.msg,'手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
   }
   if(m.formEl && !formType){
     showErr(m.msg,'請選擇欲進行的形式（標示 * 者）。'); return;
