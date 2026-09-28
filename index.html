@@ -1482,6 +1482,14 @@ document.getElementById('serviceModal').addEventListener('click',e=>{if(e.target
 
 // ══════════════════════════════════════════════════════════════════
 //  Cloudflare Turnstile（隱形人機驗證）
+// 將全形數字轉成半形、移除空白與連字號（例如「０９１２-３４５ ６７８」→「0912345678」）
+function normDigits(v){
+  return String(v||'')
+    .replace(/[０-９]/g, function(ch){ return String.fromCharCode(ch.charCodeAt(0) - 0xFEE0); })
+    .replace(/[\s\-－]/g, '')
+    .trim();
+}
+
 // ══════════════════════════════════════════════════════════════════
 const TURNSTILE_SITE_KEY = "0x4AAAAAAE_qyYtAPnOb0Ija";
 let turnstileWidgetId = null;
@@ -1621,10 +1629,10 @@ function submitOnenessReg(e){
   const f=e.target;
   const name_zh    = f.name_zh.value.trim();
   const name_en    = f.name_en.value.trim();
-  const phone      = f.phone.value.trim();
+  const phone      = normDigits(f.phone.value);
   const email      = f.email.value.trim();
   const source     = f.source.value.trim();
-  const transfer   = f.transfer_code.value.trim();
+  const transfer   = normDigits(f.transfer_code.value);
   const gEl        = f.querySelector('input[name="gender"]:checked');
   const sEl        = f.querySelector('input[name="oneness_season"]:checked');
   const diet       = f.diet.value;
@@ -1636,13 +1644,13 @@ function submitOnenessReg(e){
     showErr('onenessMsg','請填寫所有必填欄位（標示 * 者）'); return;
   }
   if(!/^09\d{8}$/.test(phone)){
-    showErr('onenessMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+    showErr('onenessMsg','手機格式錯誤，請用半形數字（切換為英文輸入法）輸入台灣手機號碼，例如 0912345678'); return;
   }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     showErr('onenessMsg','Email 格式不正確'); return;
   }
   if(!/^\d{5}$/.test(transfer)){
-    showErr('onenessMsg','匯款帳號後五碼請輸入 5 個數字'); return;
+    showErr('onenessMsg','匯款帳號後五碼請用半形數字（切換為英文輸入法）輸入 5 個數字'); return;
   }
   const courseName = '合一覺醒課程 '+sEl.value;
   sendToSheet({
@@ -1679,10 +1687,10 @@ function submitJiehuReg(e){
   e.preventDefault();
   const f=e.target;
   const name      = f.name.value.trim();
-  const phone     = f.phone.value.trim();
+  const phone     = normDigits(f.phone.value);
   const email     = f.email.value.trim();
   const referrer  = f.referrer.value.trim();
-  const transfer  = f.transfer_code.value.trim();
+  const transfer  = normDigits(f.transfer_code.value);
   const gEl       = f.querySelector('input[name="gender"]:checked');
   const cEl       = f.querySelector('input[name="course_class"]:checked');
 
@@ -1690,13 +1698,13 @@ function submitJiehuReg(e){
     showErr('jiehuMsg','請填寫所有必填欄位'); return;
   }
   if(!/^09\d{8}$/.test(phone)){
-    showErr('jiehuMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+    showErr('jiehuMsg','手機格式錯誤，請用半形數字（切換為英文輸入法）輸入台灣手機號碼，例如 0912345678'); return;
   }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     showErr('jiehuMsg','Email 格式不正確'); return;
   }
   if(!/^\d{5}$/.test(transfer)){
-    showErr('jiehuMsg','匯款帳號後五碼請輸入 5 個數字'); return;
+    showErr('jiehuMsg','匯款帳號後五碼請用半形數字（切換為英文輸入法）輸入 5 個數字'); return;
   }
   sendToSheet({
     b_website: f.b_website.value,
@@ -1733,9 +1741,9 @@ function submitReikiTrainingReg(e){
   const f=e.target;
   const name_zh   = f.name_zh.value.trim();
   const name_en   = f.name_en.value.trim();
-  const phone     = f.phone.value.trim();
+  const phone     = normDigits(f.phone.value);
   const email     = f.email.value.trim();
-  const transfer  = f.transfer_code.value.trim();
+  const transfer  = normDigits(f.transfer_code.value);
   const seasonEl  = f.querySelector('input[name="reiki_season"]:checked');
   const gEl       = f.querySelector('input[name="gender"]:checked');
   const note      = f.note.value.trim();
@@ -1745,13 +1753,13 @@ function submitReikiTrainingReg(e){
     showErr('reikiTrainingMsg','請填寫所有必填欄位（標示 * 者）'); return;
   }
   if(!/^09\d{8}$/.test(phone)){
-    showErr('reikiTrainingMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+    showErr('reikiTrainingMsg','手機格式錯誤，請用半形數字（切換為英文輸入法）輸入台灣手機號碼，例如 0912345678'); return;
   }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     showErr('reikiTrainingMsg','Email 格式不正確'); return;
   }
   if(!/^\d{5}$/.test(transfer)){
-    showErr('reikiTrainingMsg','匯款帳號後五碼請輸入 5 個數字'); return;
+    showErr('reikiTrainingMsg','匯款帳號後五碼請用半形數字（切換為英文輸入法）輸入 5 個數字'); return;
   }
   const courseName = '聖火靈氣執行師培訓 '+seasonEl.value;
   sendToSheet({
@@ -1935,7 +1943,7 @@ function submitReg(e){
   const email     = form.email.value.trim();
   const genderEl  = form.querySelector('input[name="gender"]:checked');
   const course    = form.course.value;
-  const phone     = form.phone.value.trim();
+  const phone     = normDigits(form.phone.value);
   const referrer  = form.referrer.value.trim();
   const note      = form.note.value.trim();
 
@@ -1943,7 +1951,7 @@ function submitReg(e){
     showErr('regMsg','請填寫所有必填欄位（標示 * 者）。'); return;
   }
   if(!/^09\d{8}$/.test(phone)){
-    showErr('regMsg','手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+    showErr('regMsg','手機格式錯誤，請用半形數字（切換為英文輸入法）輸入台灣手機號碼，例如 0912345678'); return;
   }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     showErr('regMsg','Email 格式不正確'); return;
@@ -1981,7 +1989,7 @@ async function submitServiceForm(type){
   };
   const m=map[type]; if(!m) return;
   const name  = document.getElementById(m.name)?.value.trim()||'';
-  const phone = document.getElementById(m.phone)?.value.trim()||'';
+  const phone = normDigits(document.getElementById(m.phone)?.value);
   const email = document.getElementById(m.email)?.value.trim()||'';
   const times = document.getElementById(m.times)?.value.trim()||'';
   const source= document.getElementById(m.source)?.value.trim()||'';
@@ -1992,7 +2000,7 @@ async function submitServiceForm(type){
     showErr(m.msg,'請填寫所有必填欄位（標示 * 者）。'); return;
   }
   if(!/^09\d{8}$/.test(phone)){
-    showErr(m.msg,'手機格式錯誤，請輸入台灣手機號碼（例如 0912345678）'); return;
+    showErr(m.msg,'手機格式錯誤，請用半形數字（切換為英文輸入法）輸入台灣手機號碼，例如 0912345678'); return;
   }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     showErr(m.msg,'Email 格式不正確'); return;
