@@ -126,7 +126,14 @@ module.exports = async function handler(req, res) {
       if (gasResult.message === 'unauthorized') {
         return res.status(502).json({ success: false, message: '伺服器設定錯誤，請稍後再試' });
       }
-      return res.status(400).json({ success: false, message: gasResult.message || '資料寫入失敗，請稍後再試或直接與我們聯繫' });
+      // Apps Script 回傳的英文訊息轉成中文，避免客人看不懂
+      const gasMessageMap = {
+        'duplicate submission': '您已送出過相同的報名，請勿重複送出。如需確認報名狀態，請與我們聯繫。',
+        'invalid submission': '報名資料有誤，請重新整理頁面後再試一次',
+        'invalid data': '報名資料有誤，請重新整理頁面後再試一次',
+      };
+      const friendlyMessage = gasMessageMap[gasResult.message] || gasResult.message || '資料寫入失敗，請稍後再試或直接與我們聯繫';
+      return res.status(400).json({ success: false, message: friendlyMessage });
     }
 
     return res.status(200).json({ success: true, message: '報名成功！' });
